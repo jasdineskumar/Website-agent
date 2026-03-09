@@ -1,0 +1,12 @@
+{
+  "name": "website-builder-agent",
+  "version": "1.0.0",
+  "description": "An environment for the AI agent to build and deploy websites.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

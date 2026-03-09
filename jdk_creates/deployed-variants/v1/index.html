@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jdk.creates | B2B AI Revenue Engine</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#030305',
+                        surface: '#0A0A0F',
+                        surfaceLight: '#15151F',
+                        primary: '#00F0FF',
+                        primaryDark: '#0055FF',
+                        textMain: '#FFFFFF',
+                        textMuted: '#8B8B9E'
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* ================= GLOBAL ================= */
+        :root {
+            --primary: #00F0FF;
+            --primary-dark: #0055FF;
+        }
+
+        body {
+            background-color: #030305;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            cursor: none;
+            /* Custom cursor */
+            font-family: 'Inter', sans-serif;
+            selection-background: var(--primary);
+            selection-color: #000;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: #000;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030305;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+        }
+
+        /* Custom Cursor */
+        #cursor-dot,
+        #cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        #cursor-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        #cursor-ring {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+        }
+
+        body.hovering #cursor-dot {
+            width: 0;
+            height: 0;
+        }
+
+        body.hovering #cursor-ring {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 240, 255, 0.1);
+            border-color: rgba(0, 240, 255, 0.8);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Nav Glassmorphism */
+        .glass-nav {
+            background: rgba(3, 3, 5, 0.6);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            position: relative;
+            background: linear-gradient(135deg, var(--primaryDark), var(--primary));
+            color: #FFF;
+            /* Changed to white for better contrast */
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1rem 2rem;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.4);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            color: #FFF;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background 0.3s, border-color 0.3s;
+            border-radius: 2px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        /* Typography */
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff 30%, #a0a0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-primary {
+            background: linear-gradient(135deg, var(--primary), #8800FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Background Visuals */
+        #bg-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        /* Grid Background overlay */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+            mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: linear-gradient(180deg, rgba(20, 20, 30, 0.8) 0%, rgba(10, 10, 15, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0, 240, 255, 0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .feature-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .line-mask {
+            overflow: hidden;
+        }
+
+        .line-mask>div {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        /* Utility for flowing particles */
+        @keyframes moveRight {
+            0% {
+                transform: translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Custom Cursor -->
+    <div id="cursor-ring"></div>
+    <div id="cursor-dot"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 display flex items-center justify-between">
+            <div class="flex items-center gap-2 interactable cursor-pointer">
+                <div class="w-2 h-2 bg-primary animate-pulse"></div>
+                <span class="font-display font-bold text-xl tracking-tight">jdk.creates<span
+                        class="text-primary">_</span></span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8 font-mono text-sm text-textMuted">
+                <a href="#systems" class="interactable hover:text-white transition-colors">// Systems</a>
+                <a href="#process" class="interactable hover:text-white transition-colors">// Process</a>
+                <a href="#audit" class="interactable hover:text-white transition-colors">// Growth Audit</a>
+            </div>
+
+            <a href="#audit" class="btn-primary text-xs py-2 px-6 interactable hidden sm:inline-block">Book Audit</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <canvas id="bg-canvas"></canvas>
+        <div class="grid-bg"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-12">
+            <div class="inline-block mb-6 interactable">
+                <div
+                    class="flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary font-mono text-xs uppercase tracking-widest backdrop-blur-md">
+                    <i class="ph-fill ph-target"></i> B2B Revenue Engine
+                </div>
+            </div>
+
+            <div class="line-mask mb-6">
+                <h1
+                    class="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-gradient">
+                    Scale Revenue. <br />
+                    <span class="text-gradient-primary">Automate Growth.</span>
+                </h1>
+            </div>
+
+            <div class="line-mask mb-10 max-w-2xl mx-auto">
+                <p class="font-sans text-lg md:text-xl text-textMuted leading-relaxed">
+                    We build custom AI systems that generate pipeline, close deals, and remove manual work for
+                    high-growth B2B companies.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hero-btns reveal-up">
+                <a href="#audit" class="btn-primary interactable w-full sm:w-auto text-center">
+                    Book Growth Audit <span
+                        class="opacity-50 ml-2 font-light tracking-normal drop-shadow-none text-xs">(30 Min)</span>
+                </a>
+                <a href="#systems" class="btn-outline interactable w-full sm:w-auto text-center">
+                    Explore Systems
+                </a>
+            </div>
+
+            <!-- Interactive Revenue Engine Core -->
+            <div class="mt-8 max-w-4xl mx-auto relative reveal-up" style="transition-delay: 0.5s;">
+                <div
+                    class="relative bg-surface p-6 md:p-8 rounded-xl border border-white/10 shadow-2xl overflow-hidden group/engine interactable cursor-crosshair">
+
+                    <!-- Glow Backgrounds that pulse -->
+                    <div
+                        class="absolute top-1/2 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-[40px] -translate-y-1/2 group-hover/engine:bg-primary/40 transition-colors duration-700">
+                    </div>
+                    <div
+                        class="absolute top-1/2 right-1/4 w-32 h-32 bg-[#8800FF]/20 rounded-full blur-[40px] -translate-y-1/2 group-hover/engine:bg-[#8800FF]/40 transition-colors duration-700">
+                    </div>
+                    <div
+                        class="absolute top-1/2 left-1/2 w-48 h-48 bg-white/5 rounded-full blur-[50px] -translate-x-1/2 -translate-y-1/2 group-hover/engine:bg-white/10 transition-colors duration-500">
+                    </div>
+
+                    <!-- Header -->
+                    <div class="flex justify-between items-center mb-8 relative z-30">
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-cpu text-primary text-xl animate-pulse"></i>
+                            <h3 class="font-display font-bold text-lg text-white">The AI Revenue Engine</h3>
+                        </div>
+                        <div
+                            class="font-mono text-[10px] text-textMuted uppercase tracking-widest bg-white/5 px-2 py-1 rounded flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                            System Online
+                        </div>
+                    </div>
+
+                    <!-- Visual Area -->
+                    <div class="relative h-64 w-full flex items-center justify-between px-2 sm:px-8 z-20">
+
+                        <!-- LEFT: Data Inputs -->
+                        <div class="w-1/4 flex flex-col justify-center gap-4 h-full relative z-20">
+                            <!-- Input Node 1 -->
+                            <div class="flex items-center justify-end gap-3 group/node">
+                                <span
+                                    class="font-mono text-[10px] uppercase text-textMuted group-hover/node:text-white transition-colors">Target
+                                    ICPs</span>
+                                <div
+                                    class="w-8 h-8 rounded bg-surface border border-white/10 flex items-center justify-center text-primary relative shadow-[0_0_10px_rgba(0,0,0,0.5)] group-hover/node:border-primary/50 transition-all">
+                                    <i class="ph ph-users"></i>
+                                    <div
+                                        class="absolute right-0 top-1/2 w-8 h-[1px] bg-gradient-to-r from-primary/50 to-transparent translate-x-full">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Input Node 2 -->
+                            <div class="flex items-center justify-end gap-3 group/node">
+                                <span
+                                    class="font-mono text-[10px] uppercase text-textMuted group-hover/node:text-white transition-colors">Intent
+                                    Signals</span>
+                                <div
+                                    class="w-8 h-8 rounded bg-surface border border-white/10 flex items-center justify-center text-primary relative shadow-[0_0_10px_rgba(0,0,0,0.5)] group-hover/node:border-primary/50 transition-all">
+                                    <i class="ph ph-radar"></i>
+                                    <div
+                                        class="absolute right-0 top-1/2 w-8 h-[1px] bg-gradient-to-r from-primary/50 to-transparent translate-x-full">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Input Node 3 -->
+                            <div class="flex items-center justify-end gap-3 group/node relative">
+                                <span
+                                    class="font-mono text-[10px] uppercase text-textMuted group-hover/node:text-white transition-colors">CRM
+                                    Data</span>
+                                <div
+                                    class="w-8 h-8 rounded bg-surface border border-white/10 flex items-center justify-center text-primary relative shadow-[0_0_10px_rgba(0,0,0,0.5)] group-hover/node:border-primary/50 transition-all">
+                                    <i class="ph ph-database"></i>
+                                    <div
+                                        class="absolute right-0 top-1/2 w-8 h-[1px] bg-gradient-to-r from-primary/50 to-transparent translate-x-full">
+                                    </div>
+                                </div>
+                                <!-- Flowing data particle (CSS Animation) -->
+                                <div
+                                    class="absolute right-0 top-1/2 w-[30px] h-full translate-x-full -translate-y-1/2 pointer-events-none overflow-hidden hidden md:block">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-primary rounded-full absolute top-[calc(50%-3px)] animate-[moveRight_1.5s_infinite_linear]">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CENTER: The Core Processing Unit -->
+                        <div class="w-2/4 flex justify-center items-center relative z-20">
+                            <!-- Outer Rotating Rings -->
+                            <div
+                                class="absolute w-40 h-40 rounded-full border border-dashed border-primary/20 animate-[spin_20s_linear_infinite] group-hover/engine:border-primary/40 group-hover/engine:animate-[spin_10s_linear_infinite] transition-all duration-700">
+                            </div>
+                            <div
+                                class="absolute w-32 h-32 rounded-full border border-primary/20 animate-[spin_15s_linear_infinite_reverse] group-hover/engine:border-primary/50 group-hover/engine:animate-[spin_7s_linear_infinite_reverse] transition-all duration-700">
+                            </div>
+
+                            <!-- Central Hub -->
+                            <div
+                                class="relative w-24 h-24 rounded-full bg-surface border border-primary/40 shadow-[0_0_30px_rgba(0,240,255,0.2)] flex items-center justify-center overflow-hidden group-hover/engine:shadow-[0_0_50px_rgba(0,240,255,0.4)] group-hover/engine:border-primary transition-all duration-500 z-10">
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+                                <!-- Neural Net Lines (Fake Canvas) -->
+                                <svg class="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 100 100">
+                                    <path d="M50,10 L80,50 L50,90 L20,50 Z" fill="none"
+                                        class="stroke-primary/30 group-hover/engine:stroke-primary/60" stroke-width="1">
+                                    </path>
+                                    <path d="M20,50 L80,50" fill="none"
+                                        class="stroke-primary/30 group-hover/engine:stroke-primary/60" stroke-width="1">
+                                    </path>
+                                    <path d="M50,10 L50,90" fill="none"
+                                        class="stroke-primary/30 group-hover/engine:stroke-primary/60" stroke-width="1">
+                                    </path>
+                                    <!-- processing dots -->
+                                    <circle cx="50" cy="50" r="2" class="fill-primary animate-pulse"></circle>
+                                    <circle cx="20" cy="50" r="1.5" class="fill-white/50"></circle>
+                                    <circle cx="80" cy="50" r="1.5" class="fill-white/50"></circle>
+                                    <circle cx="50" cy="10" r="1.5" class="fill-white/50"></circle>
+                                    <circle cx="50" cy="90" r="1.5" class="fill-white/50"></circle>
+                                </svg>
+
+                                <i
+                                    class="ph-fill ph-brain text-3xl text-white relative z-10 group-hover/engine:scale-110 transition-transform"></i>
+                            </div>
+
+                            <!-- Processing Label -->
+                            <div
+                                class="absolute -bottom-8 font-mono text-[9px] text-primary uppercase tracking-widest text-center opacity-70 group-hover/engine:opacity-100 transition-opacity whitespace-nowrap">
+                                Autonomous Routing & Personalization
+                            </div>
+                        </div>
+
+                        <!-- RIGHT: Output -->
+                        <div class="w-1/4 flex flex-col justify-center gap-6 h-full relative z-20">
+                            <!-- Output Node 1 -->
+                            <div class="flex items-center justify-start gap-4 group/node relative">
+                                <div
+                                    class="absolute left-0 top-1/2 w-8 h-[1px] bg-gradient-to-l from-[#8800FF]/50 to-transparent -translate-x-full">
+                                </div>
+                                <!-- Flowing data particle out -->
+                                <div
+                                    class="absolute left-0 top-1/2 w-[30px] h-full -translate-x-[calc(100%+8px)] -translate-y-1/2 pointer-events-none overflow-hidden hidden md:block">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-[#8800FF] rounded-full absolute top-[calc(50%-3px)] left-0 animate-[moveRight_1.5s_infinite_linear]">
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="w-12 h-12 rounded bg-surface border border-white/10 flex items-center justify-center text-[#8800FF] relative shadow-[0_0_15px_rgba(136,0,255,0.1)] group-hover/node:border-[#8800FF]/50 group-hover/node:shadow-[0_0_20px_rgba(136,0,255,0.3)] group-hover/engine:-translate-y-1 transition-all">
+                                    <i class="ph-fill ph-calendar-plus text-xl"></i>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-display font-bold text-white text-sm">Qualified Meetings</span>
+                                    <span class="font-mono text-[8px] uppercase text-textMuted tracking-wider">Booked on
+                                        Autopilot</span>
+                                </div>
+                            </div>
+
+                            <!-- Output Node 2 -->
+                            <div class="flex items-center justify-start gap-4 group/node relative">
+                                <div
+                                    class="absolute left-0 top-1/2 w-8 h-[1px] bg-gradient-to-l from-green-400/50 to-transparent -translate-x-full">
+                                </div>
+
+                                <div
+                                    class="w-12 h-12 rounded bg-surface border border-white/10 flex items-center justify-center text-green-400 relative shadow-[0_0_15px_rgba(74,222,128,0.1)] group-hover/node:border-green-400/50 group-hover/node:shadow-[0_0_20px_rgba(74,222,128,0.3)] group-hover/engine:translate-y-1 transition-all">
+                                    <i class="ph-fill ph-currency-dollar text-xl"></i>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-display font-bold text-white text-sm">Closed Won Revenue</span>
+                                    <span
+                                        class="font-mono text-[8px] uppercase text-textMuted tracking-wider">Accelerated
+                                        Cycles</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="mt-12 flex flex-col items-center justify-center gap-2 opacity-50 interactable reveal-up hidden lg:flex w-full"
+                style="transition-delay: 1s;">
+                <span class="font-mono text-[10px] uppercase tracking-widest text-textMuted">Init Sequence</span>
+                <div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Systems Section -->
+    <section id="systems" class="relative py-32 bg-background border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-20 md:flex justify-between items-end gap-10">
+                <div class="max-w-xl line-mask">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">The Automated <br /><span
+                            class="text-gradient-primary">Revenue Engine.</span></h2>
+                    <p class="text-textMuted text-lg">Stop relying on manual outreach. We architect scalable
+                        infrastructure that predictably turns cold data into closed won revenue.</p>
+                </div>
+                <div class="mt-8 md:mt-0 font-mono text-sm text-primary uppercase tracking-widest reveal-up">
+                    // Architecture Overview
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="cards-container">
+
+                <!-- Card 1 -->
+                <div class="feature-card interactable card-hover">
+                    <div class="feature-icon-wrapper"><i class="ph ph-funnel"></i></div>
+                    <h3 class="font-display text-xl font-bold mb-3 text-white">Generate Pipeline</h3>
+                    <p class="text-textMuted text-sm leading-relaxed mb-6">Autonomous prospecting agents that scrape,
+                        enrich, and personalize outreach at scale. Hit your ideal customer profile with hyper-relevant
+                        messaging.</p>
+                    <ul class="space-y-2 font-mono text-xs text-textMuted">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i>
+                            Multi-channel sequences</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i>
+                            AI-driven personalization</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> Intent
+                            signal monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card interactable card-hover">
+                    <div class="feature-icon-wrapper"><i class="ph ph-handshake"></i></div>
+                    <h3 class="font-display text-xl font-bold mb-3 text-white">Close Deals Faster</h3>
+                    <p class="text-textMuted text-sm leading-relaxed mb-6">Equip your sales team with AI co-pilots.
+                        Automated CRM updates, call summaries, and customized follow-up collateral generated instantly.
+                    </p>
+                    <ul class="space-y-2 font-mono text-xs text-textMuted">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> Meeting
+                            intelligence</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i>
+                            Zero-touch CRM hygiene</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i>
+                            Frictionless scheduling</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card interactable card-hover">
+                    <div class="feature-icon-wrapper"><i class="ph ph-cpu"></i></div>
+                    <h3 class="font-display text-xl font-bold mb-3 text-white">Remove Manual Work</h3>
+                    <p class="text-textMuted text-sm leading-relaxed mb-6">Eliminate human error and bottlenecks. We
+                        integrate your entire tech stack so data flows seamlessly from lead capture to invoice.</p>
+                    <ul class="space-y-2 font-mono text-xs text-textMuted">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> Custom
+                            webhook routing</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> API
+                            sync across tools</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i>
+                            Dashboard analytics</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section id="process" class="relative py-32 bg-surfaceLight border-t border-white/5 overflow-hidden">
+        <div class="absolute inset-0 grid-bg opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-20 text-center line-mask">
+                <div class="inline-block font-mono text-sm text-primary uppercase tracking-widest mb-4 reveal-up">//
+                    Methodology</div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">The Integration <span
+                        class="text-gradient">Timeline.</span></h2>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Vertical Line -->
+                <div
+                    class="absolute left-[24px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary/50 via-primary/20 to-transparent">
+                </div>
+
+                <div class="space-y-16">
+                    <!-- Step 1 -->
+                    <div
+                        class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16 reveal-up">
+                        <div class="hidden md:block w-1/2 text-right pr-12">
+                            <h3 class="font-display text-2xl font-bold text-white mb-2">Audit</h3>
+                            <p class="text-textMuted text-sm leading-relaxed">We map your current revenue workflow,
+                                identifying manual bottlenecks and leverage points.</p>
+                        </div>
+                        <div
+                            class="absolute left-0 md:left-1/2 -translate-x-[4px] md:-translate-x-1/2 flex items-center justify-center w-[50px] h-[50px] rounded-full bg-surface border border-primary/30 z-10 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                            <span class="font-mono text-sm font-bold text-primary">01</span>
+                        </div>
+                        <div class="w-full pl-20 md:w-1/2 md:pl-12 md:hidden">
+                            <h3 class="font-display text-2xl font-bold text-white mb-2">Audit</h3>
+                            <p class="text-textMuted text-sm leading-relaxed">We map your current revenue workflow,
+                                identifying manual bottlenecks and leverage points.</p>
+                        </div>
+                        <!-- Empty placeholder for flex alignment on desktop -->
+                        <div class="hidden md:block w-1/2"></div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16 reveal-up">
+                        <div class="hidden md:block w-1/2"></div>
+                        <div
+                            class="absolute left-0 md:left-1/2 -translate-x-[4px] md:-translate-x-1/2 flex items-center justify-center w-[50px] h-[50px] rounded-full bg-surface border border-primary/30 z-10 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                            <span class="font-mono text-sm font-bold text-primary">02</span>
+                        </div>
+                        <div class="w-full pl-20 md:w-1/2 md:pl-12">
+                            <h3 class="font-display text-2xl font-bold text-white mb-2">System Design</h3>
+                            <p class="text-textMuted text-sm leading-relaxed">We architect your custom growth
+                                infrastructure, selecting the optimal AI agents and tech stack.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16 reveal-up">
+                        <div class="hidden md:block w-1/2 text-right pr-12">
+                            <h3 class="font-display text-2xl font-bold text-white mb-2">Deployment</h3>
+                            <p class="text-textMuted text-sm leading-relaxed">We build and launch the full stack,
+                                integrating autonomously with your CRM and communication tools.</p>
+                        </div>
+                        <div
+                            class="absolute left-0 md:left-1/2 -translate-x-[4px] md:-translate-x-1/2 flex items-center justify-center w-[50px] h-[50px] rounded-full bg-surface border border-primary/30 z-10 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                            <span class="font-mono text-sm font-bold text-primary">03</span>
+                        </div>
+                        <div class="w-full pl-20 md:w-1/2 md:pl-12 md:hidden">
+                            <h3 class="font-display text-2xl font-bold text-white mb-2">Deployment</h3>
+                            <p class="text-textMuted text-sm leading-relaxed">We build and launch the full stack,
+                                integrating autonomously with your CRM and communication tools.</p>
+                        </div>
+                        <div class="hidden md:block w-1/2"></div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16 reveal-up">
+                        <div class="hidden md:block w-1/2"></div>
+                        <div
+                            class="absolute left-0 md:left-1/2 -translate-x-[4px] md:-translate-x-1/2 flex items-center justify-center w-[50px] h-[50px] rounded-full bg-surface border border-primary/30 z-10 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                            <span class="font-mono text-sm font-bold text-primary">04</span>
+                        </div>
+                        <div class="w-full pl-20 md:w-1/2 md:pl-12">
+                            <h3 class="font-display text-2xl font-bold text-white mb-2">Optimization</h3>
+                            <p class="text-textMuted text-sm leading-relaxed">We monitor the pipeline and improve
+                                performance weekly, refining prompts and routing logic.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Strip -->
+    <section class="border-y border-white/10 bg-surface py-12 relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] pointer-events-none">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
+            <div class="reveal-up">
+                <div class="font-display text-4xl md:text-5xl font-bold text-white mb-2">90<span
+                        class="text-primary">%</span></div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-textMuted">Manual Tasks Automated</div>
+            </div>
+            <div class="reveal-up">
+                <div class="font-display text-4xl md:text-5xl font-bold text-white mb-2">3<span
+                        class="text-primary">x</span></div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-textMuted">Pipeline Velocity</div>
+            </div>
+            <div class="reveal-up">
+                <div class="font-display text-4xl md:text-5xl font-bold text-white mb-2">0<span
+                        class="text-primary">.0</span></div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-textMuted">Code Required by You</div>
+            </div>
+            <div class="reveal-up">
+                <div class="font-display text-4xl md:text-5xl font-bold text-white mb-2">24<span
+                        class="text-primary">/7</span></div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-textMuted">System Uptime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="audit" class="relative py-32 overflow-hidden">
+        <!-- Abstract gradient glow -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[150px] rounded-full pointer-events-none z-0">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-block mb-6 reveal-up">
+                <i class="ph-fill ph-lightning text-4xl text-primary"></i>
+            </div>
+            <h2 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white tracking-tighter reveal-up">
+                Ready to scale?
+            </h2>
+            <p class="text-xl text-textMuted max-w-2xl mx-auto mb-10 reveal-up">
+                Stop leaving money on the table. Book a 30-minute growth audit to see exactly how custom AI
+                infrastructure can transform your revenue engine.
+            </p>
+            <div class="reveal-up">
+                <a href="mailto:hello@jdk.creates"
+                    class="btn-primary inline-flex items-center gap-3 text-lg interactable">
+                    Book Growth Audit <i class="ph-bold ph-arrow-right"></i>
+                </a>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-textMuted mt-6">Limited availability for
+                    Q3. B2B only.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-8 bg-background relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-display font-bold text-lg tracking-tight">jdk.creates<span class="text-primary">_</span>
+            </div>
+            <div class="font-mono text-xs text-textMuted uppercase tracking-widest">
+                © 2026 jdk.creates. All rights reserved.
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="text-textMuted hover:text-white transition-colors interactable"><i
+                        class="ph-fill ph-twitter-logo text-xl"></i></a>
+                <a href="#" class="text-textMuted hover:text-white transition-colors interactable"><i
+                        class="ph-fill ph-linkedin-logo text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // --- Register GSAP Plugins ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- Custom Cursor Logic ---
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorRing = document.getElementById('cursor-ring');
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            // Move dot instantly
+            gsap.set(cursorDot, { x: mouseX, y: mouseY });
+        });
+
+        // Smooth follow for ring
+        gsap.ticker.add(() => {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            gsap.set(cursorRing, { x: ringX, y: ringY });
+        });
+
+        // Hover effects
+        const interactables = document.querySelectorAll('.interactable');
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+
+        // Card Hover Glow Effect (tracking mouse inside card)
+        document.getElementById('cards-container').onmousemove = e => {
+            for (const card of document.getElementsByClassName("card-hover")) {
+                const rect = card.getBoundingClientRect(),
+                    x = e.clientX - rect.left,
+                    y = e.clientY - rect.top;
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            }
+        };
+
+        // --- WebGL / Canvas Particle Network Background ---
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 1.5 + 0.5;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 240, 255, 0.5)';
+                ctx.fill();
+            }
+        }
+
+        const particles = [];
+        const particleCount = Math.min(window.innerWidth / 15, 100); // Scale based on screen
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw connections
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        // Opacity based on distance
+                        const opacity = 1 - (distance / 150);
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${opacity * 0.2})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+
+                // Connect to mouse
+                const dxm = particles[i].x - mouseX;
+                const dym = particles[i].y - (mouseY + window.scrollY); // adjust for scroll in canvas? 
+                // Since canvas is position absolute at top, we just use absolute mouse position
+                // Wait, canvas is fixed inside hero? No, it's absolute in hero. We don't need scrollY if hero is top.
+                const distMouse = Math.sqrt(dxm * dxm + dym * dym);
+                if (distMouse < 200) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouseX, mouseY);
+                    const opacity = 1 - (distMouse / 200);
+                    ctx.strokeStyle = `rgba(0, 85, 255, ${opacity * 0.5})`;
+                    ctx.stroke();
+
+                    // slight attraction to mouse
+                    particles[i].vx -= dxm * 0.0001;
+                    particles[i].vy -= dym * 0.0001;
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // --- GSAP Entrance & Scroll Animations ---
+
+        // Initial Hero Reveal
+        const heroTl = gsap.timeline();
+
+        // Split text animation for hero title
+        const titleDivs = document.querySelectorAll('.line-mask > div, .line-mask > h1, .line-mask > p');
+        heroTl.to(titleDivs, {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power4.out",
+            delay: 0.2
+        });
+
+        heroTl.to('.hero-btns', {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out"
+        }, "-=0.6");
+
+        // Scroll Reveal Elements
+        gsap.utils.toArray('.reveal-up').forEach(elem => {
+            gsap.to(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out"
+            });
+        });
+
+        // Graph Animation Trigger
+        const graphLine = document.getElementById('graph-line');
+        const graphArea = document.getElementById('graph-area');
+
+        if (graphLine) {
+            const length = graphLine.getTotalLength();
+            gsap.set(graphLine, { strokeDasharray: length, strokeDashoffset: length });
+
+            gsap.to(graphLine, {
+                scrollTrigger: {
+                    trigger: graphLine,
+                    start: "top 90%",
+                },
+                strokeDashoffset: 0,
+                duration: 2.5,
+                ease: "power3.inOut",
+                onComplete: () => {
+                    if (graphArea) graphArea.classList.remove('opacity-0');
+                    if (graphArea) graphArea.classList.add('opacity-100');
+                }
+            });
+        }
+
+        // Staggered Cards Reveal
+        gsap.from('.feature-card', {
+            scrollTrigger: {
+                trigger: '#cards-container',
+                start: "top 80%"
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+    </script>
+</body>
+
+</html>
