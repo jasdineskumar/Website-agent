@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hometurf | Award-Winning Lawn Care</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- GSAP for performant scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            /* Apple-esque Light Mode Palette */
+            --bg-base: #f5f5f7; /* iOS Base Gray */
+            --bg-glass: rgba(255, 255, 255, 0.7);
+            --bg-glass-dark: rgba(255, 255, 255, 0.4);
+            --text-main: #1d1d1f; 
+            --text-secondary: #86868b;
+            --hometurf-green: #34c759; /* iOS Success Green / Hometurf Green */
+            --hometurf-green-glass: rgba(52, 199, 89, 0.15);
+            --border-glass: rgba(255, 255, 255, 0.6);
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.04);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.08);
+            --radius-large: 28px;
+            --radius-pill: 100px;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ---------------------------------------------------
+           Animated Canvas Background (Performance Optimized)
+           --------------------------------------------------- */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        /* Fallback subtle gradient if canvas fails */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -3;
+            background: radial-gradient(circle at 50% 10%, #e2f4e8 0%, var(--bg-base) 60%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ---------------------------------------------------
+           Glassmorphism Navigation (Enhanced Apple-style)
+           --------------------------------------------------- */
+        nav {
+            position: fixed;
+            top: 24px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: calc(100% - 48px);
+            max-width: 1200px;
+            height: 64px;
+            /* Enhanced frosted glass */
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            
+            /* Sharp glass rims */
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-pill);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center main links by default */
+            padding: 0 24px;
+            z-index: 1000;
+            will-change: transform;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            /* Absolute anchor to the left */
+            position: absolute;
+            left: 24px;
+        }
+        
+        .logo i {
+            color: var(--hometurf-green);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600; /* Bolder text for strong glass contrast */
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover { color: var(--text-main); }
+        
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+            /* Absolute anchor to the right */
+            position: absolute;
+            right: 24px;
+        }
+
+        /* Buttons */
+        .btn-glass {
+            background: rgba(52, 199, 89, 0.9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 4px 14px rgba(52, 199, 89, 0.3);
+            text-decoration: none;
+            will-change: transform;
+        }
+
+        .btn-glass:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(52, 199, 89, 0.4);
+            background: rgba(52, 199, 89, 1);
+        }
+
+        .btn-glass:active { transform: translateY(0) scale(0.98); }
+
+        .btn-glass-secondary {
+            background: var(--bg-glass);
+            color: var(--text-main);
+            border: 1px solid var(--border-glass);
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            text-decoration: none;
+            will-change: transform;
+        }
+
+        .btn-glass-secondary:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        /* ---------------------------------------------------
+           Hero Section
+           --------------------------------------------------- */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 80px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-tag {
+            background: var(--hometurf-green-glass);
+            color: var(--hometurf-green);
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            border: 1px solid rgba(52, 199, 89, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Perspective wrapper for 3D effect */
+        .hero-content-wrapper {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            will-change: transform;
+            /* Needed to ensure hover works on the whole area smoothly */
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            max-width: 900px;
+            transform-origin: center center;
+            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero-title .green-text {
+            color: var(--hometurf-green);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 600px;
+            line-height: 1.5;
+            margin: 0 auto 48px auto;
+            letter-spacing: -0.01em;
+            transform-origin: center center;
+            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* ---------------------------------------------------
+           The Interactive Lawnmower Section (Toy)
+           --------------------------------------------------- */
+        .interactive-toy-section {
+            width: 100%;
+            height: 400px;
+            margin: 60px 0;
+            background: #d4edda; /* Uncut grass color */
+            border-radius: var(--radius-large);
+            position: relative;
+            overflow: hidden;
+            /* Sunken gradient depth effect */
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: inset 0 20px 40px rgba(0,0,0,0.15), inset 0 4px 10px rgba(0,0,0,0.2), 0 10px 30px rgba(255,255,255,0.5);
+            cursor: none; /* Hide default cursor when playing */
+        }
+
+        /* The canvas where the "cut grass" is drawn */
+        #mow-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* The Lawnmower cursor */
+        #mower {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 64px; height: 64px;
+            background-color: #212529;
+            border-radius: 12px;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            pointer-events: none; /* Let canvas handle events */
+            z-index: 2;
+            transition: transform 0.1s linear; /* Smooth rotation */
+            will-change: transform, left, top;
+        }
+
+        /* SVG Mower body details */
+        #mower::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            width: 20px;
+            height: 10px;
+            background: #e03131;
+            border-radius: 4px;
+        }
+
+        .toy-instructions {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-glass);
+            backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            z-index: 3;
+            pointer-events: none;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* ---------------------------------------------------
+           Clear Booking CTA Form
+           --------------------------------------------------- */
+        .booking-section {
+            padding: 100px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .booking-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 32px;
+            padding: 60px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: var(--shadow-hover);
+            text-align: center;
+        }
+
+        .booking-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+        }
+        
+        .booking-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-left: 12px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            font-size: 1rem;
+            font-family: var(--font-family);
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            background: #fff;
+            border-color: var(--hometurf-green);
+            box-shadow: 0 0 0 4px var(--hometurf-green-glass);
+        }
+
+        .form-submit {
+            margin-top: 30px;
+            padding: 18px 40px;
+            background: var(--hometurf-green);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 20px rgba(52, 199, 89, 0.3);
+            /* Center in grid */
+            grid-column: 1 / -1;
+            justify-self: center;
+            min-width: 280px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(52, 199, 89, 0.4);
+        }
+
+        /* ---------------------------------------------------
+           Services Grid Section (Glassmorphism 9-Grid)
+           --------------------------------------------------- */
+        .services-overview {
+            padding: 160px 0 80px 0;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .services-info {
+            padding-right: 20px;
+        }
+
+        .services-info h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .services-info p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn-glass-primary {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: var(--hometurf-green);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 16px 32px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glass-primary:hover {
+            transform: translateY(-4px);
+            background: white;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .services-grid-9 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.7), 0 8px 32px rgba(0,0,0,0.05);
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: inset 0 0 40px rgba(255,255,255,1), 0 12px 40px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--hometurf-green);
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            margin-top: auto;
+        }
+
+        .service-arrow {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .service-card:hover .service-arrow {
+            transform: translateX(6px);
+            color: var(--hometurf-green);
+        }
+
+        /* ---------------------------------------------------
+           Programs Grid (Updated to match screenshots)
+           --------------------------------------------------- */
+        .programs-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            background: #73a968; /* Green background from screenshot */
+            padding: 40px;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .program-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            padding: 40px 30px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.1), 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: inset 0 0 30px rgba(255,255,255,0.2), 0 12px 40px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Value Badge */
+        .value-badge {
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: #555;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+
+        .program-subtitle {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+            opacity: 0.9;
+        }
+
+        .program-name {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .program-features {
+            list-style: none;
+            display: flex; flex-direction: column; gap: 16px;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .program-features li {
+            display: flex; align-items: flex-start; gap: 12px;
+            font-size: 0.95rem; font-weight: 500;
+        }
+        .program-features i { margin-top: 2px; font-weight: bold; }
+
+        .card-btn {
+            background: white;
+            color: #1a4f1a;
+            padding: 16px;
+            border: none;
+            font-weight: 800; 
+            text-align: center;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .program-card:hover .card-btn {
+            background: #f0f0f0;
+            transform: scale(1.02);
+        }
+
+        /* Ambassador Program Override (Dark Green) */
+        .card-ambassador {
+            background-color: #1c4a24;
+            border-color: white;
+        }
+        .card-ambassador:hover {
+            background-color: #173d1e;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            margin: 60px 0;
+            padding: 50px 40px;
+            background: rgba(40, 167, 69, 0.05); /* very subtle light green tint */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(40, 167, 69, 0.2);
+            border-radius: var(--radius-large);
+            text-align: center;
+            box-shadow: inset 0 0 40px rgba(255,255,255,0.6), 0 8px 32px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .promo-highlight {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--hometurf-green);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .promo-expiry {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 32px;
+        }
+
+        .promo-terms {
+            font-size: 0.75rem;
+            color: rgba(28, 27, 26, 0.5);
+            margin-top: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Awards Section */
+        .awards-section {
+            padding: 40px 0 100px 0;
+            text-align: center;
+        }
+
+        .awards-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            letter-spacing: -0.02em;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .award-badge {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.7), 0 8px 32px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .award-badge:hover {
+            transform: translateY(-8px);
+            box-shadow: inset 0 0 40px rgba(255,255,255,1), 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            color: #d4af37; /* Premium Gold */
+        }
+
+        .award-icon.blue { color: #4285F4; } /* Google Blue */
+        
+        .award-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            line-height: 1.3;
+            color: var(--text-main);
+        }
+
+        .award-subtext {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* Parallax Gallery */
+        .parallax-gallery {
+            padding: 80px 0;
+            height: 45rem;
+            overflow: hidden;
+            position: relative;
+            /* smooth top/bottom vignette fade */
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .gallery-col {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            will-change: transform; /* Hardware acceleration for parallax */
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            will-change: transform;
+        }
+
+        /* ---------------------------------------------------
+           Rating / Customer Satisfaction Section
+           --------------------------------------------------- */
+        .rating-section {
+            padding: 60px 0 20px 0;
+            text-align: center;
+        }
+        
+        .trust-badge {
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stars {
+            color: #ffc107; /* Star yellow */
+            font-size: 1.5rem;
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .trust-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .trust-subtext {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* GSAP Reveal simple classes */
+        .fade-up { opacity: 0; transform: translateY(30px); }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .programs-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 3rem; }
+            .interactive-toy-section { height: 300px; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .btn-glass-secondary { display: none; }
+            .hero-actions { flex-direction: column; }
+            .booking-card { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fallback Gradient -->
+    <div class="ambient-bg"></div>
+    <!-- Performance-friendly JS Canvas Animation (Fireflies/Seeds) -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fade-up" data-delay="0.1">
+        <div class="logo"><i class="ph-fill ph-leaf"></i> Hometurf</div>
+        <div class="nav-links">
+            <a href="#programs" class="nav-link">Programs</a>
+            <a href="#interactive" class="nav-link">Experience</a>
+            <a href="#booking" class="nav-link">Get A Quote</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#booking" class="btn-glass">Get Started</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-tag fade-up" data-delay="0.2">
+                <i class="ph-fill ph-check-circle"></i> Award-Winning Service
+            </div>
+            
+            <div class="hero-content-wrapper">
+                <h1 class="hero-title" id="hero-headline">
+                    <div class="fade-up" data-delay="0.3">Expert Lawn Care</div>
+                    <div class="fade-up" data-delay="0.4">in the</div>
+                    <div class="fade-up" data-delay="0.5"><span class="green-text">Guelph Region</span></div>
+                </h1>
+                
+                <p class="hero-subtitle fade-up" data-delay="0.6" id="hero-subline">
+                    For the best lawn care services in the Guelph areas, choose Hometurf's local lawn specialists.
+                </p>
+            </div>
+            
+            <div class="hero-actions fade-up" data-delay="0.7">
+                <a href="#booking" class="btn-glass">Get Your Free Quote</a>
+                <a href="#programs" class="btn-glass-secondary">Explore Programs</a>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- 75% Off Promo Banner -->
+        <section class="promo-banner fade-up">
+            <h2 class="promo-title">Let's Make 2026 The Year Your Lawn Stands Out</h2>
+            <div class="promo-highlight">Sign Up For Full Lawn Program And<br>Receive 75% Off 1st Treatment*</div>
+            <div class="promo-expiry">Offer Expires May 31, 2026</div>
+            <a href="#booking" class="btn-glass" style="background: var(--hometurf-green); color: white; border-color: transparent;">Request A Quote</a>
+            <p class="promo-terms">* This special offer of 75% off is available to new residential customers only and applies to the first application with the purchase of an annual program. Enrollment in AutoPay, Budget Billing, or Prepay is required. Offer valid for lawns up to 10,000 square feet.</p>
+        </section>
+
+        <!-- Award-Winning Glass Badges Section -->
+        <section class="awards-section fade-up">
+            <h2 class="awards-title">Award-Winning, Hassle-Free Lawn Care</h2>
+            <div class="awards-grid">
+                <div class="award-badge">
+                    <i class="ph-fill ph-medal award-icon"></i>
+                    <div class="award-subtext">Consumer Choice 2024</div>
+                    <div class="award-text">Toronto Central</div>
+                </div>
+                <div class="award-badge">
+                    <i class="ph-fill ph-seal-check award-icon"></i>
+                    <div class="award-subtext">Top Choice Award</div>
+                    <div class="award-text">Mark of Excellence 2024</div>
+                </div>
+                <div class="award-badge">
+                    <div class="stars" style="color: #ffc107; font-size: 1.5rem; display: flex; gap: 4px; margin-bottom: 0;">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <div class="award-text">1,000+ 5-Star Reviews</div>
+                    <div class="award-icon blue" style="font-size: 1.8rem; margin-top: -5px;"><i class="ph-bold ph-google-logo"></i></div>
+                </div>
+                <div class="award-badge">
+                    <i class="ph-fill ph-crown award-icon"></i>
+                    <div class="award-subtext">HomeStars</div>
+                    <div class="award-text">Best Of Award Winner 2023</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parallax Photo Gallery -->
+        <section class="parallax-gallery fade-up">
+            <div class="gallery-grid">
+                <!-- Column 1 (Moves Up) -->
+                <div class="gallery-col gallery-col-1">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=3387&q=80" loading="lazy" alt="Lawn care">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&auto=format&fit=crop&w=3070&q=80" loading="lazy" alt="Lawn precision">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80" loading="lazy" alt="Green grass">
+                </div>
+                
+                <!-- Column 2 (Subtle movement) -->
+                <div class="gallery-col gallery-col-2">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1682686581854-5e71f58e7e3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80" loading="lazy" alt="Lawn beauty">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80" loading="lazy" alt="Fresh cut lawn">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80" loading="lazy" alt="Perfect turf">
+                </div>
+
+                <!-- Column 3 (Moves Down) -->
+                <div class="gallery-col gallery-col-3">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2640&q=80" loading="lazy" alt="Exterior">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=3387&q=80" loading="lazy" alt="Lawn maintenance">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&auto=format&fit=crop&w=3070&q=80" loading="lazy" alt="Yard">
+                </div>
+            </div>
+        </section>
+
+        <!-- The Interactive Lawnmower Section -->
+        <section id="interactive" class="fade-up section-header" style="margin-top: 40px; margin-bottom: 0;">
+            <h2 class="section-title">The Perfect Cut</h2>
+            <p class="section-subtitle" style="color: var(--text-secondary);">Test out our precision handling. Hover to mow the lawn.</p>
+        </section>
+
+        <section class="interactive-toy-section fade-up" id="toy-container">
+            <canvas id="mow-canvas"></canvas>
+            <div id="mower"></div>
+            <div class="toy-instructions">Move your cursor to mow!</div>
+        </section>
+
+        <!-- Customer Satisfaction / Rating Section -->
+        <section class="rating-section fade-up">
+            <div class="trust-badge">
+                <div class="stars">
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i>
+                </div>
+                <div class="trust-text">4.8/5 Average Rating</div>
+                <div class="trust-subtext">Based on thousands of satisfied Ontario & Alberta homeowners.</div>
+            </div>
+        </section>
+
+        <!-- Services Grid Section -->
+        <section id="services" class="services-overview fade-up">
+            <div class="services-info">
+                <h2>Our Lawn Care Services in the Guelph Area</h2>
+                <p>Hometurf provides personalized lawn programs for your needs using leading products and technology to deliver results.</p>
+                <a href="tel:1-365-513-6014" class="btn-glass-primary">CALL 1-365-513-6014</a>
+            </div>
+            <div class="services-grid-9" data-delay="0.2">
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-sparkle service-icon"></i>
+                    <h3 class="service-title">Lawn Fertilizations & Weed Control</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-path service-icon"></i>
+                    <h3 class="service-title">Weed Control for Paths, Patios</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-drop service-icon"></i>
+                    <h3 class="service-title">Dethatching and Overseeding</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-bug service-icon"></i>
+                    <h3 class="service-title">Grub Control</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-wind service-icon"></i>
+                    <h3 class="service-title">Lawn Aeration</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-shield-check service-icon"></i>
+                    <h3 class="service-title">Crabgrass Control</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-tree service-icon"></i>
+                    <h3 class="service-title">Root Zone Fertilizer for Trees</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-spade service-icon"></i>
+                    <h3 class="service-title">Soil Rejuvenator</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+                <a href="#booking" class="service-card">
+                    <i class="ph-fill ph-bag service-icon"></i>
+                    <h3 class="service-title">Granular Compost and Seed</h3>
+                    <i class="ph-bold ph-arrow-right service-arrow"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="programs-section">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Our Lawn Care Programs</h2>
+            </div>
+
+            <div class="programs-grid fade-up" data-delay="0.1">
+                <div class="program-card">
+                    <div class="value-badge">Good Value</div>
+                    <div class="program-subtitle">Includes 5 Scheduled Visits</div>
+                    <h3 class="program-name">The Deluxe Program</h3>
+                    <ul class="program-features">
+                        <li><i class="ph-bold ph-check"></i> Season Long Fertilization</li>
+                        <li><i class="ph-bold ph-check"></i> Season Long Weed Control</li>
+                        <li><i class="ph-bold ph-check"></i> Lawn Analysis With Every Visit</li>
+                    </ul>
+                    <div class="card-btn">Get A Free Instant Quote</div>
+                </div>
+
+                <div class="program-card">
+                    <div class="value-badge">Better Value</div>
+                    <div class="program-subtitle">Includes 6 Scheduled Visits</div>
+                    <h3 class="program-name">The Complete Program</h3>
+                    <ul class="program-features">
+                        <li><i class="ph-bold ph-check"></i> Season Long Fertilization</li>
+                        <li><i class="ph-bold ph-check"></i> Season Long Weed Control</li>
+                        <li><i class="ph-bold ph-check"></i> Lawn Analysis With Every Visit</li>
+                        <li><i class="ph-bold ph-check"></i> Surface Insect Control</li>
+                        <li><i class="ph-bold ph-check"></i> Aeration</li>
+                    </ul>
+                    <div class="card-btn">Get A Free Instant Quote</div>
+                </div>
+
+                <div class="program-card card-ambassador">
+                    <div class="value-badge">Highest Value</div>
+                    <div class="program-subtitle">Includes 6 Scheduled Visits</div>
+                    <h3 class="program-name">The Ambassador Program</h3>
+                    <ul class="program-features">
+                        <li><i class="ph-bold ph-check"></i> Season Long Fertilization</li>
+                        <li><i class="ph-bold ph-check"></i> Season Long Weed Control</li>
+                        <li><i class="ph-bold ph-check"></i> Lawn Analysis With Every Visit</li>
+                        <li><i class="ph-bold ph-check"></i> Surface Insect Control</li>
+                        <li><i class="ph-bold ph-check"></i> Aeration</li>
+                        <li><i class="ph-bold ph-check"></i> Granular Compost + Seed Application</li>
+                        <li><i class="ph-bold ph-check"></i> Four (4) Free 1kg Seed Bags</li>
+                    </ul>
+                    <div class="card-btn">Get A Free Instant Quote</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explicit Booking Form CTA -->
+        <section id="booking" class="booking-section fade-up">
+            <div class="booking-card">
+                <h2 class="booking-title">Instantly claim your quote.</h2>
+                <p class="booking-subtitle">Fill out the details below and our team will analyze your property instantly via satellite.</p>
+                
+                <form class="form-grid" onsubmit="event.preventDefault(); alert('Quote requested! Hometurf will contact you shortly.');">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" placeholder="Doe" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Home Address (Ontario / Alberta)</label>
+                        <input type="text" class="form-input" placeholder="123 Maple Street, Toronto" required>
+                    </div>
+                    <button type="submit" class="form-submit">Get My Free Quote</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hometurf Lawn Care. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.7;">Serving Toronto, Calgary, and surrounding areas.</p>
+        </div>
+    </footer>
+
+
+    <!-- Optimized Scripts without heavy GSAP ScrollTrigger physics -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // ---------------------------------------------------------
+            // 1. Dynamic Hero 3D interactive Effect
+            // ---------------------------------------------------------
+            const heroHeadline = document.getElementById('hero-headline');
+            const heroSubline = document.getElementById('hero-subline');
+            const heroWrapper = document.querySelector('.hero-content-wrapper');
+            
+            if (heroWrapper && heroHeadline && heroSubline) {
+                heroWrapper.addEventListener('mousemove', (e) => {
+                    const rect = heroWrapper.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    // Calculate percentage from center (-1 to 1)
+                    const xPct = (x / rect.width - 0.5) * 2;
+                    const yPct = (y / rect.height - 0.5) * 2;
+                    
+                    // Apply rotation based on position (inverse for parallax feel)
+                    const rotateX = yPct * -8; // max 8 deg tilt
+                    const rotateY = xPct * 8;
+                    
+                    heroHeadline.style.transform = `translateZ(40px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    heroSubline.style.transform = `translateZ(20px) rotateX(${rotateX * 0.5}deg) rotateY(${rotateY * 0.5}deg)`;
+                });
+                
+                heroWrapper.addEventListener('mouseleave', () => {
+                    heroHeadline.style.transform = `translateZ(0) rotateX(0deg) rotateY(0deg)`;
+                    heroSubline.style.transform = `translateZ(0) rotateX(0deg) rotateY(0deg)`;
+                });
+            }
+
+            // ---------------------------------------------------------
+            // 2. GSAP ScrollTrigger Reveal Animations
+            // ---------------------------------------------------------
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                
+                // Set initial state for ALL fade-up elements
+                gsap.set(".fade-up", { y: 40, opacity: 0 });
+
+                // Start building an timeline for the Hero Elements so they load in instantly
+                const heroTl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+                heroTl.to("nav.fade-up", { y: 0, opacity: 1 }, "+=0.1")
+                      .to(".hero-tag.fade-up", { y: 0, opacity: 1 }, "-=0.8")
+                      .to(".hero-title .fade-up", { y: 0, opacity: 1, stagger: 0.15 }, "-=0.8")
+                      .to(".hero-subtitle.fade-up", { y: 0, opacity: 1 }, "-=0.8")
+                      .to(".hero-actions.fade-up", { y: 0, opacity: 1 }, "-=0.8");
+
+                // Everything below fold using ScrollTrigger batches
+                ScrollTrigger.batch(".fade-up:not(nav, .hero-tag, .hero-title .fade-up, .hero-subtitle, .hero-actions)", {
+                    onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, duration: 1, ease: "power3.out" }),
+                    once: true,
+                    start: "top 85%"
+                });
+            }
+
+
+            // ---------------------------------------------------------
+            // 2. Animated Canvas Background (Lightweight Fireflies/Seeds)
+            // ---------------------------------------------------------
+            const bgCanvas = document.getElementById('bg-canvas');
+            const bgCtx = bgCanvas.getContext('2d');
+            let particles = [];
+            let width, height;
+
+            // Global mouse object to track user cursor for interaction
+            const globalMouse = { x: -1000, y: -1000 };
+            window.addEventListener('mousemove', (e) => {
+                globalMouse.x = e.clientX;
+                globalMouse.y = e.clientY;
+            });
+
+            function resizeBg() {
+                width = bgCanvas.width = window.innerWidth;
+                height = bgCanvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeBg);
+            resizeBg();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.8;
+                    this.vy = Math.random() * 0.5 + 0.2; // Slowly falling down
+                    // Leaves are bigger
+                    this.size = Math.random() * 15 + 10;
+                    this.angle = Math.random() * Math.PI * 2;
+                    this.spin = (Math.random() - 0.5) * 0.05;
+                    // Hometurf green variations for leaves
+                    this.color = `rgba(${30 + Math.random()*40}, ${180 - Math.random()*40}, ${70 + Math.random()*30}, ${Math.random() * 0.4 + 0.15})`;
+                }
+                update() {
+                    // Interaction: Leaves blow away from the mouse
+                    const dx = globalMouse.x - this.x;
+                    const dy = globalMouse.y - this.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 200) {
+                        this.vx -= (dx / dist) * 0.5;
+                        this.vy -= (dy / dist) * 0.5;
+                    }
+
+                    // Gentle drift back to normal falling speed
+                    this.vx *= 0.98;
+                    this.vy = this.vy * 0.98 + 0.02; // gravity pull towards normal fall
+
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.angle += this.spin;
+
+                    // Wrap around
+                    if (this.x < -100) this.x = width + 100;
+                    if (this.x > width + 100) this.x = -100;
+                    if (this.y < -100) this.y = height + 100;
+                    if (this.y > height + 100) { this.y = -100; this.x = Math.random() * width; }
+                }
+                draw() {
+                    bgCtx.save();
+                    bgCtx.translate(this.x, this.y);
+                    bgCtx.rotate(this.angle);
+                    
+                    // Draw a leaf shape using bezier curves
+                    bgCtx.beginPath();
+                    bgCtx.moveTo(0, -this.size);
+                    bgCtx.bezierCurveTo(this.size, -this.size/2, this.size, this.size/2, 0, this.size);
+                    bgCtx.bezierCurveTo(-this.size, this.size/2, -this.size, -this.size/2, 0, -this.size);
+                    
+                    bgCtx.fillStyle = this.color;
+                    bgCtx.fill();
+                    
+                    // Optional subtle stem/vein
+                    bgCtx.beginPath();
+                    bgCtx.moveTo(0, -this.size + 2);
+                    bgCtx.lineTo(0, this.size - 2);
+                    bgCtx.strokeStyle = 'rgba(255,255,255,0.3)';
+                    bgCtx.lineWidth = 1;
+                    bgCtx.stroke();
+
+                    bgCtx.restore();
+                }
+            }
+
+            // Create leaves based on screen size (~30 max for performance)
+            const particleCount = Math.min(window.innerWidth / 30, 30);
+            for (let i=0; i<particleCount; i++) particles.push(new Particle());
+
+            let bgAnimationId;
+            let isBgVisible = true; // default true until observer kicks in
+
+            function animateBg() {
+                if (!isBgVisible) return; // Pause animation if offscreen
+                bgCtx.clearRect(0, 0, width, height);
+                particles.forEach(p => { p.update(); p.draw(); });
+                bgAnimationId = requestAnimationFrame(animateBg);
+            }
+            animateBg();
+
+            // Intersect Observer to pause background when scrolling way down past it
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                const bgObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            if (!isBgVisible) {
+                                isBgVisible = true;
+                                animateBg();
+                            }
+                        } else {
+                            isBgVisible = false;
+                            cancelAnimationFrame(bgAnimationId);
+                        }
+                    });
+                }, { rootMargin: '200px' });
+                // We observe hero, because bg canvas is visually associated with the top of page
+                bgObserver.observe(heroSection);
+            }
+
+
+            // ---------------------------------------------------------
+            // 3. The Interactive Lawnmower Canvas Toy
+            // ---------------------------------------------------------
+            const toyContainer = document.getElementById('toy-container');
+            const mowCanvas = document.getElementById('mow-canvas');
+            const mowerEl = document.getElementById('mower');
+            const mowCtx = mowCanvas.getContext('2d');
+            
+            let toyRect = toyContainer.getBoundingClientRect();
+            
+            function resizeMowCanvas() {
+                toyRect = toyContainer.getBoundingClientRect();
+                mowCanvas.width = toyRect.width;
+                mowCanvas.height = toyRect.height;
+                
+                // Fill canvas with "uncut grass" pattern color
+                mowCtx.fillStyle = '#d4edda';
+                mowCtx.fillRect(0, 0, mowCanvas.width, mowCanvas.height);
+                
+                // Draw some text underneath technically by relying on canvas clear
+                // Actually, we'll draw "cut grass" by clearing the canvas rect to transparent!
+                // The background of toy-container will be the "cut" color via CSS if we want, 
+                // OR we fill canvas dark green, and draw light green cut lines.
+                
+                // Let's reset: Canvas is dark lush green. Cut lines are lighter green.
+                mowCtx.fillStyle = 'rgba(40, 167, 69, 0.4)'; // slightly darker over base
+                mowCtx.fillRect(0, 0, mowCanvas.width, mowCanvas.height);
+            }
+            // initial render
+            resizeMowCanvas();
+
+            // Use debounce/throttle for the scroll listener, or just remove it and calculate inside mousemove.
+            // We will calculate `toyRect` inside mousemove to prevent unthrottled layout thrashing on scroll!
+            window.addEventListener('resize', resizeMowCanvas);
+
+            // Mower state
+            let mowerX = toyRect.width / 2;
+            let mowerY = toyRect.height / 2;
+            let targetX = mowerX;
+            let targetY = mowerY;
+            let isHoveringToy = false;
+            let lastX = mowerX;
+            let lastY = mowerY;
+            let mowerAnimationId;
+
+            toyContainer.addEventListener('mouseenter', () => isHoveringToy = true);
+            toyContainer.addEventListener('mouseleave', () => isHoveringToy = false);
+            
+            toyContainer.addEventListener('mousemove', (e) => {
+                // Fetch dynamically relative to viewport to avoid needing a scroll listener
+                const currentRect = toyContainer.getBoundingClientRect();
+                targetX = e.clientX - currentRect.left;
+                targetY = e.clientY - currentRect.top;
+            });
+
+            function renderMower() {
+                if (isHoveringToy) {
+                    // Smooth follow
+                    mowerX += (targetX - mowerX) * 0.15;
+                    mowerY += (targetY - mowerY) * 0.15;
+
+                    // Calculate rotation based on delta
+                    const dx = mowerX - lastX;
+                    const dy = mowerY - lastY;
+                    let angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+                    // Move DOM element
+                    mowerEl.style.left = `${mowerX}px`;
+                    mowerEl.style.top = `${mowerY}px`;
+                    
+                    // Only rotate if actually moving significantly
+                    if (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5) {
+                        mowerEl.style.transform = `translate(-50%, -50%) rotate(${angle + 90}deg)`;
+                        
+                        // "Cut the grass" - erase canvas using globalCompositeOperation
+                        mowCtx.globalCompositeOperation = 'destination-out';
+                        mowCtx.beginPath();
+                        mowCtx.lineCap = 'round';
+                        mowCtx.lineJoin = 'round';
+                        mowCtx.lineWidth = 44; // width of mower cut
+                        mowCtx.moveTo(lastX, lastY);
+                        mowCtx.lineTo(mowerX, mowerY);
+                        mowCtx.stroke();
+                        mowCtx.globalCompositeOperation = 'source-over'; // restore
+                    }
+
+                    lastX = mowerX;
+                    lastY = mowerY;
+                }
+                
+                mowerAnimationId = requestAnimationFrame(renderMower);
+            }
+            // initially start it
+            renderMower();
+
+            // IntersectionObserver to pause the toy loop entirely when off screen!
+            const toyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (!mowerAnimationId) mowerAnimationId = requestAnimationFrame(renderMower);
+                    } else {
+                        cancelAnimationFrame(mowerAnimationId);
+                        mowerAnimationId = null;
+                    }
+                });
+            });
+            toyObserver.observe(toyContainer);
+
+            // ---------------------------------------------------------
+            // 4. Native GSAP Parallax Photo Gallery
+            // ---------------------------------------------------------
+            // Replicates the Framer Motion "parallax-scroll.tsx" React component 
+            // completely natively without adding external frameworks
+            gsap.to('.gallery-col-1', {
+                y: -150,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.parallax-gallery',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+            
+            // Middle column moves slightly in opposite dir for depth
+            gsap.to('.gallery-col-2', {
+                y: -50,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.parallax-gallery',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+
+            gsap.to('.gallery-col-3', {
+                y: 150,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.parallax-gallery',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
