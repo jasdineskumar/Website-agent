@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prestige Outdoor Living Gallery — Explore our backyard landscapes, pool installations, lighting, water features, and outdoor kitchens in Milton, Ontario.">
+  <title>Gallery | Prestige Outdoor Living — Milton, Ontario</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── Design Tokens ───────────────────────────────────────── */
+    :root {
+      --color-bg: #0A0807;
+      --color-surface: #141210;
+      --color-raised: #1E1B17;
+      --color-gold: #B89866;
+      --color-gold-light: #D4B483;
+      --color-fg: #F5F0E8;
+      --color-fg-muted: #9A9087;
+      --color-border: rgba(184,152,102,0.18);
+      --color-glass: rgba(255,255,255,0.04);
+      --color-glass-border: rgba(184,152,102,0.15);
+      --gold-gradient: linear-gradient(135deg, #D4B483, #B89866);
+      --transition-base: 250ms ease-out;
+    }
+
+    /* ─── Reset ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* ─── Helpers ─────────────────────────────────────────────── */
+    .gold-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .font-display-label {
+      font-family: 'Raleway', Inter, sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--color-gold);
+    }
+
+    /* ─── Navigation ──────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 1.5rem;
+      background: rgba(10,8,7,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo-img {
+      height: 32px; width: auto; display: block;
+      filter:
+        brightness(0) invert(1)
+        sepia(1) saturate(2.8) hue-rotate(-8deg)
+        drop-shadow(0 0 8px rgba(184,152,102,0.28));
+      transition: filter 0.35s ease;
+    }
+    .nav-logo:hover .nav-logo-img {
+      filter:
+        brightness(0) invert(1)
+        sepia(1) saturate(3.2) hue-rotate(-8deg) brightness(1.1)
+        drop-shadow(0 0 18px rgba(184,152,102,0.65));
+    }
+    .footer-logo .nav-logo-img { height: 38px; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+      color: var(--color-fg-muted);
+      transition: color var(--transition-base);
+    }
+    .nav-back:hover { color: var(--color-gold); }
+    .nav-back svg { transition: transform var(--transition-base); }
+    .nav-back:hover svg { transform: translateX(-3px); }
+    .nav-cta-phone {
+      display: none;
+      font-size: 0.85rem; font-weight: 600;
+      background: var(--gold-gradient);
+      color: #0A0807;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    .nav-cta-phone:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(184,152,102,0.4); }
+    @media (min-width: 640px) { .nav-cta-phone { display: inline-flex; align-items: center; gap: 0.4rem; } }
+
+    /* ─── Hero Header ─────────────────────────────────────────── */
+    #gallery-hero {
+      padding: 9rem 1.25rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #gallery-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(184,152,102,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .gallery-hero-overline { margin-bottom: 1rem; }
+    .gallery-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .gallery-hero-sub {
+      font-size: 1.05rem;
+      color: var(--color-fg-muted);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    /* Thin gold rule */
+    .gold-rule {
+      width: 48px; height: 1px;
+      background: var(--gold-gradient);
+      margin: 0 auto;
+    }
+
+    /* ─── Filter Tabs ─────────────────────────────────────────── */
+    #filter-bar {
+      position: sticky; top: 60px; z-index: 50;
+      background: rgba(10,8,7,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0;
+    }
+    .filter-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; overflow-x: auto; gap: 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      padding: 1rem 1.5rem;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-fg-muted);
+      border-bottom: 2px solid transparent;
+      transition: color var(--transition-base), border-color var(--transition-base);
+      white-space: nowrap;
+    }
+    .filter-btn:hover { color: var(--color-fg); }
+    .filter-btn.active {
+      color: var(--color-gold);
+      border-bottom-color: var(--color-gold);
+    }
+    @media (min-width: 768px) { .filter-btn { padding: 1rem 2rem; font-size: 0.82rem; } }
+
+    /* ─── Gallery Grid ─────────────────────────────────────────── */
+    #gallery-grid-wrap {
+      padding: 3rem 1.25rem 6rem;
+      max-width: 1440px; margin: 0 auto;
+    }
+    @media (min-width: 768px) { #gallery-grid-wrap { padding: 3rem 2rem 6rem; } }
+    @media (min-width: 1024px) { #gallery-grid-wrap { padding: 3rem 3rem 6rem; } }
+
+    .gallery-grid {
+      columns: 1;
+      column-gap: 12px;
+      transition: opacity 0.3s ease;
+    }
+    @media (min-width: 540px)  { .gallery-grid { columns: 2; } }
+    @media (min-width: 900px)  { .gallery-grid { columns: 3; } }
+    @media (min-width: 1280px) { .gallery-grid { columns: 4; } }
+
+    .gallery-grid.fading { opacity: 0; }
+
+    /* Individual item */
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: zoom-in;
+      display: block;
+      background: var(--color-raised);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+      filter: brightness(0.88) saturate(1.05);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      filter: brightness(1) saturate(1.15);
+    }
+
+    /* Hover overlay */
+    .gallery-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,8,7,0.75) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.25rem;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item-label {
+      font-family: 'Raleway', sans-serif; font-weight: 300;
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-gold); margin-bottom: 0.25rem;
+    }
+    .gallery-item-caption {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.95rem; font-weight: 600;
+      color: var(--color-fg); line-height: 1.3;
+    }
+
+    /* Zoom icon */
+    .gallery-item-zoom {
+      position: absolute; top: 0.75rem; right: 0.75rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(10,8,7,0.55);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease;
+      color: var(--color-gold);
+    }
+    .gallery-item:hover .gallery-item-zoom { opacity: 1; }
+
+    /* Hidden items */
+    .gallery-item.hidden {
+      display: none;
+    }
+
+    /* ─── Empty state ──────────────────────────────────────────── */
+    .gallery-empty {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--color-fg-muted);
+      font-size: 1rem;
+    }
+    .gallery-empty.visible { display: block; }
+
+    /* ─── Lightbox ─────────────────────────────────────────────── */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 2000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox.open { opacity: 1; pointer-events: all; }
+    #lb-overlay {
+      position: absolute; inset: 0;
+      background: rgba(6,5,4,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    #lb-content {
+      position: relative; z-index: 1;
+      max-width: min(94vw, 1400px);
+      display: flex; flex-direction: column; align-items: center;
+    }
+    #lb-img {
+      max-width: 100%; max-height: 86vh;
+      border-radius: 8px;
+      box-shadow: 0 0 120px rgba(0,0,0,0.9), 0 0 0 1px rgba(184,152,102,0.15);
+      object-fit: contain;
+      transition: opacity 0.25s ease;
+    }
+    #lb-img.switching { opacity: 0; }
+    #lb-caption {
+      text-align: center; margin-top: 0.85rem;
+      color: var(--color-fg-muted); font-size: 0.82rem;
+      font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 0.06em;
+    }
+    /* Close */
+    #lb-close {
+      position: fixed; top: 1.25rem; right: 1.25rem; z-index: 2001;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(20,18,16,0.8);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-fg-muted); cursor: pointer;
+      transition: color var(--transition-base), background var(--transition-base);
+    }
+    #lb-close:hover { color: var(--color-gold); background: rgba(30,27,23,0.9); }
+
+    /* Prev/Next arrows */
+    .lb-arrow {
+      position: fixed; top: 50%; z-index: 2001;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(20,18,16,0.75);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-fg-muted); cursor: pointer;
+      transition: color var(--transition-base), background var(--transition-base), transform var(--transition-base);
+      transform: translateY(-50%);
+    }
+    .lb-arrow:hover { color: var(--color-gold); background: rgba(30,27,23,0.9); }
+    #lb-prev { left: 1rem; }
+    #lb-prev:hover { transform: translateY(-50%) translateX(-2px); }
+    #lb-next { right: 1rem; }
+    #lb-next:hover { transform: translateY(-50%) translateX(2px); }
+
+    /* ─── Count badge ─────────────────────────────────────────── */
+    .gallery-count {
+      padding: 0 1.25rem 1.5rem;
+      max-width: 1440px; margin: 0 auto;
+      font-size: 0.8rem; color: var(--color-fg-muted);
+      font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 0.1em;
+    }
+    @media (min-width: 768px) { .gallery-count { padding: 0 2rem 1.5rem; } }
+    @media (min-width: 1024px) { .gallery-count { padding: 0 3rem 1.5rem; } }
+
+    /* ─── Footer ──────────────────────────────────────────────── */
+    #footer {
+      border-top: 1px solid var(--color-border);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem; font-weight: 700;
+    }
+    .footer-links {
+      display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;
+      font-size: 0.82rem; color: var(--color-fg-muted);
+    }
+    .footer-links a:hover { color: var(--color-gold); }
+    .footer-copy {
+      font-size: 0.78rem; color: var(--color-fg-muted);
+      opacity: 0.6;
+    }
+
+    /* ─── Cursor glow (desktop) ────────────────────────────────── */
+    #cursor-glow {
+      position: fixed; top: 0; left: 0; z-index: 9997;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,152,102,0.06) 0%, transparent 68%);
+      pointer-events: none; user-select: none;
+      transform: translate(-50%, -50%);
+    }
+    @media (pointer: coarse) { #cursor-glow { display: none; } }
+
+    /* ─── Accessibility ────────────────────────────────────────── */
+    :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: 4px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ── NAV ─────────────────────────────────────────────────── -->
+  <header id="navbar" role="banner">
+    <nav class="nav-inner" aria-label="Gallery navigation">
+      <a href="index.html" class="nav-logo" aria-label="Back to Prestige Outdoor Living">
+        <img src="images/logo.png" alt="Prestige Outdoor Living" class="nav-logo-img" width="220" height="60">
+      </a>
+      <a href="index.html" class="nav-back" aria-label="Return to main site">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Back to Site
+      </a>
+      <a href="tel:4374212300" class="nav-cta-phone" aria-label="Call 437-421-2300">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        437-421-2300
+      </a>
+    </nav>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section id="gallery-hero" aria-labelledby="gallery-title">
+    <p class="font-display-label gallery-hero-overline">Our Portfolio</p>
+    <h1 id="gallery-title" class="gallery-hero-title">
+      Work That Speaks<br><em class="gold-text" style="font-family:'Playfair Display',serif;font-style:italic;">For Itself.</em>
+    </h1>
+    <p class="gallery-hero-sub">Every project tells a story. Browse our complete portfolio of backyard transformations in Milton and the surrounding GTA.</p>
+    <div class="gold-rule" aria-hidden="true"></div>
+  </section>
+
+  <!-- ── FILTERS ───────────────────────────────────────────────── -->
+  <div id="filter-bar" role="navigation" aria-label="Gallery categories">
+    <div class="filter-inner" role="tablist">
+      <button class="filter-btn active" role="tab" aria-selected="true"  data-filter="all">All Work</button>
+      <button class="filter-btn"        role="tab" aria-selected="false" data-filter="pool">Pool Installation</button>
+      <button class="filter-btn"        role="tab" aria-selected="false" data-filter="land">Backyard Landscapes</button>
+      <button class="filter-btn"        role="tab" aria-selected="false" data-filter="water">Water Features</button>
+      <button class="filter-btn"        role="tab" aria-selected="false" data-filter="light">Lighting</button>
+      <button class="filter-btn"        role="tab" aria-selected="false" data-filter="kitchen">Outdoor Kitchens</button>
+    </div>
+  </div>
+
+  <!-- ── COUNT ─────────────────────────────────────────────────── -->
+  <div class="gallery-count" aria-live="polite" aria-atomic="true">
+    <span id="count-label">Showing all 34 photos</span>
+  </div>
+
+  <!-- ── GRID ──────────────────────────────────────────────────── -->
+  <main id="gallery-grid-wrap">
+    <div class="gallery-grid" id="gallery-grid" role="list">
+
+      <!-- ── POOL INSTALLATION ── -->
+      <a class="gallery-item" data-cat="pool" data-caption="Custom Fiberglass Pool" href="#" role="listitem" aria-label="View photo: Custom Fiberglass Pool">
+        <img src="images/gallery/pool-1.jpg" alt="Custom fiberglass pool installation by Prestige Outdoor Living" loading="lazy" width="2048" height="1366">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Custom Fiberglass Pool</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="Backyard Pool & Landscape" href="#" role="listitem" aria-label="View photo: Backyard Pool & Landscape">
+        <img src="images/gallery/pool-2.jpg" alt="Backyard pool and landscape design" loading="lazy" width="2048" height="1366">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Backyard Pool & Landscape</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="Spa & Pool Combo" href="#" role="listitem" aria-label="View photo: Spa & Pool Combo">
+        <img src="images/gallery/pool-3.jpg" alt="Fiberglass pool and integrated spa combination" loading="lazy" width="1972" height="2048">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Spa & Pool Combo</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="land" data-caption="Luxury Backyard Landscape" href="#" role="listitem" aria-label="View photo: Luxury Backyard Landscape">
+        <img src="images/gallery/land-1.jpg" alt="Luxury backyard landscape with lush plantings" loading="lazy" width="1200" height="626">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Backyard Landscapes</span>
+          <span class="gallery-item-caption">Luxury Backyard Landscape</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="Pool with Flagstone Deck" href="#" role="listitem" aria-label="View photo: Pool with Flagstone Deck">
+        <img src="images/gallery/pool-4.jpg" alt="Fiberglass pool with premium flagstone deck surround" loading="lazy" width="2048" height="1366">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Pool with Flagstone Deck</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="water" data-caption="Water Feature & Spillover" href="#" role="listitem" aria-label="View photo: Water Feature & Spillover">
+        <img src="images/gallery/water-1.jpg" alt="Luxury water feature with spillover design" loading="lazy" width="1000" height="667">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Water Features</span>
+          <span class="gallery-item-caption">Water Feature & Spillover</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="land" data-caption="Backyard Transformation" href="#" role="listitem" aria-label="View photo: Backyard Transformation">
+        <img src="images/gallery/land-2.jpg" alt="Complete backyard transformation with pool and landscaping" loading="lazy" width="900" height="675">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Backyard Landscapes</span>
+          <span class="gallery-item-caption">Backyard Transformation</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="Pool & Spa Integration" href="#" role="listitem" aria-label="View photo: Pool & Spa Integration">
+        <img src="images/gallery/pool-5.jpg" alt="Integrated pool and spa design" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Pool & Spa Integration</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="light" data-caption="Evening Pool Lighting" href="#" role="listitem" aria-label="View photo: Evening Pool Lighting">
+        <img src="images/gallery/light-1.jpg" alt="Outdoor pool with dramatic evening lighting design" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Lighting</span>
+          <span class="gallery-item-caption">Evening Pool Lighting</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="land" data-caption="Landscape Design" href="#" role="listitem" aria-label="View photo: Landscape Design">
+        <img src="images/gallery/land-3.jpg" alt="Professional backyard landscape design with stone work" loading="lazy" width="900" height="675">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Backyard Landscapes</span>
+          <span class="gallery-item-caption">Landscape Design</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="Luxury Pool Retreat" href="#" role="listitem" aria-label="View photo: Luxury Pool Retreat">
+        <img src="images/gallery/pool-6.jpg" alt="Luxury pool and spa retreat installation" loading="lazy" width="1200" height="900">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Luxury Pool Retreat</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="water" data-caption="Natural Water Feature" href="#" role="listitem" aria-label="View photo: Natural Water Feature">
+        <img src="images/gallery/water-2.jpg" alt="Natural stone water feature and cascade" loading="lazy" width="1000" height="750">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Water Features</span>
+          <span class="gallery-item-caption">Natural Water Feature</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="kitchen" data-caption="Outdoor Kitchen Build" href="#" role="listitem" aria-label="View photo: Outdoor Kitchen Build">
+        <img src="images/gallery/kitchen-1.jpg" alt="Custom outdoor kitchen installation with stone surround" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Outdoor Kitchens</span>
+          <span class="gallery-item-caption">Outdoor Kitchen Build</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="land" data-caption="Garden & Hardscape" href="#" role="listitem" aria-label="View photo: Garden & Hardscape">
+        <img src="images/gallery/land-4.jpg" alt="Garden design with premium hardscaping and stone work" loading="lazy" width="900" height="675">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Backyard Landscapes</span>
+          <span class="gallery-item-caption">Garden & Hardscape</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="Family Pool Installation" href="#" role="listitem" aria-label="View photo: Family Pool Installation">
+        <img src="images/gallery/pool-7.jpg" alt="Family-sized fiberglass pool with deck surround" loading="lazy" width="1200" height="900">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Family Pool Installation</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="light" data-caption="Landscape Lighting" href="#" role="listitem" aria-label="View photo: Landscape Lighting">
+        <img src="images/gallery/light-2.jpg" alt="Premium landscape lighting installation at night" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Lighting</span>
+          <span class="gallery-item-caption">Landscape Lighting</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="water" data-caption="Pool Waterfall Feature" href="#" role="listitem" aria-label="View photo: Pool Waterfall Feature">
+        <img src="images/gallery/water-3.jpg" alt="Pool with integrated waterfall and water feature" loading="lazy" width="1200" height="900">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Water Features</span>
+          <span class="gallery-item-caption">Pool Waterfall Feature</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="kitchen" data-caption="Premium Outdoor Kitchen" href="#" role="listitem" aria-label="View photo: Premium Outdoor Kitchen">
+        <img src="images/gallery/kitchen-2.jpg" alt="Premium built-in outdoor kitchen with bar seating" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Outdoor Kitchens</span>
+          <span class="gallery-item-caption">Premium Outdoor Kitchen</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="New Pool Build — Milton" href="#" role="listitem" aria-label="View photo: New Pool Build — Milton">
+        <img src="images/gallery/pool-8.jpg" alt="New pool build project in Milton Ontario" loading="lazy" width="1200" height="900">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">New Pool Build — Milton</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="land" data-caption="Modern Backyard Design" href="#" role="listitem" aria-label="View photo: Modern Backyard Design">
+        <img src="images/gallery/land-5.jpg" alt="Modern backyard design with clean lines and premium finishes" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Backyard Landscapes</span>
+          <span class="gallery-item-caption">Modern Backyard Design</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="light" data-caption="Pathway & Garden Lights" href="#" role="listitem" aria-label="View photo: Pathway & Garden Lights">
+        <img src="images/gallery/light-3.jpg" alt="Pathway and garden lighting design at dusk" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Lighting</span>
+          <span class="gallery-item-caption">Pathway & Garden Lights</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="water" data-caption="Cascade Water Feature" href="#" role="listitem" aria-label="View photo: Cascade Water Feature">
+        <img src="images/gallery/water-4.jpg" alt="Stone cascade water feature beside pool" loading="lazy" width="1200" height="900">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Water Features</span>
+          <span class="gallery-item-caption">Cascade Water Feature</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="Pool Surround & Deck" href="#" role="listitem" aria-label="View photo: Pool Surround & Deck">
+        <img src="images/gallery/pool-9.jpg" alt="Pool deck and surround installation with premium finishes" loading="lazy" width="1200" height="900">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Pool Surround & Deck</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="kitchen" data-caption="Outdoor Entertaining Area" href="#" role="listitem" aria-label="View photo: Outdoor Entertaining Area">
+        <img src="images/gallery/kitchen-3.jpg" alt="Outdoor entertaining area with kitchen and seating" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Outdoor Kitchens</span>
+          <span class="gallery-item-caption">Outdoor Entertaining Area</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="land" data-caption="Backyard Oasis" href="#" role="listitem" aria-label="View photo: Backyard Oasis">
+        <img src="images/gallery/land-6.jpg" alt="Backyard oasis transformation with pool and gardens" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Backyard Landscapes</span>
+          <span class="gallery-item-caption">Backyard Oasis</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="water" data-caption="Pool & Water Wall" href="#" role="listitem" aria-label="View photo: Pool & Water Wall">
+        <img src="images/gallery/water-5.jpg" alt="Pool with decorative water wall feature" loading="lazy" width="1200" height="900">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Water Features</span>
+          <span class="gallery-item-caption">Pool & Water Wall</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="pool" data-caption="Complete Pool Package" href="#" role="listitem" aria-label="View photo: Complete Pool Package">
+        <img src="images/gallery/pool-10.jpg" alt="Complete pool package with heating and LED lighting" loading="lazy" width="1200" height="900">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Pool Installation</span>
+          <span class="gallery-item-caption">Complete Pool Package</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="light" data-caption="Architectural Lighting" href="#" role="listitem" aria-label="View photo: Architectural Lighting">
+        <img src="images/gallery/light-4.jpg" alt="Architectural outdoor lighting on home exterior" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Lighting</span>
+          <span class="gallery-item-caption">Architectural Lighting</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="land" data-caption="Full Yard Renovation" href="#" role="listitem" aria-label="View photo: Full Yard Renovation">
+        <img src="images/gallery/land-7.jpg" alt="Complete yard renovation with hardscape and soft scape" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Backyard Landscapes</span>
+          <span class="gallery-item-caption">Full Yard Renovation</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="water" data-caption="Spa Overflow Feature" href="#" role="listitem" aria-label="View photo: Spa Overflow Feature">
+        <img src="images/gallery/water-6.jpg" alt="Elevated spa with overflow water feature into pool" loading="lazy" width="1972" height="2048">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Water Features</span>
+          <span class="gallery-item-caption">Spa Overflow Feature</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="kitchen" data-caption="Alfresco Kitchen Setup" href="#" role="listitem" aria-label="View photo: Alfresco Kitchen Setup">
+        <img src="images/gallery/kitchen-4.jpg" alt="Alfresco outdoor kitchen with grill station" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Outdoor Kitchens</span>
+          <span class="gallery-item-caption">Alfresco Kitchen Setup</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="land" data-caption="Poolside Oasis Design" href="#" role="listitem" aria-label="View photo: Poolside Oasis Design">
+        <img src="images/gallery/land-8.jpg" alt="Poolside garden oasis with premium planting and stone" loading="lazy" width="1200" height="800">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Backyard Landscapes</span>
+          <span class="gallery-item-caption">Poolside Oasis Design</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="water" data-caption="Waterfall & Rock Feature" href="#" role="listitem" aria-label="View photo: Waterfall & Rock Feature">
+        <img src="images/gallery/water-7.jpg" alt="Natural rock waterfall feature beside pool" loading="lazy" width="2048" height="1366">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Water Features</span>
+          <span class="gallery-item-caption">Waterfall & Rock Feature</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+      <a class="gallery-item" data-cat="kitchen" data-caption="Backyard Kitchen & Bar" href="#" role="listitem" aria-label="View photo: Backyard Kitchen & Bar">
+        <img src="images/gallery/kitchen-5.jpg" alt="Backyard kitchen and outdoor bar area with seating" loading="lazy" width="900" height="675">
+        <div class="gallery-item-overlay" aria-hidden="true">
+          <span class="gallery-item-label">Outdoor Kitchens</span>
+          <span class="gallery-item-caption">Backyard Kitchen & Bar</span>
+        </div>
+        <div class="gallery-item-zoom" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      </a>
+
+    </div><!-- /#gallery-grid -->
+    <div class="gallery-empty" id="gallery-empty" role="status">No photos in this category yet.</div>
+  </main>
+
+  <!-- ── LIGHTBOX ──────────────────────────────────────────────── -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+    <div id="lb-overlay" id="lb-overlay-bg"></div>
+    <button id="lb-close" aria-label="Close photo viewer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lb-arrow" id="lb-prev" aria-label="Previous photo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="lb-arrow" id="lb-next" aria-label="Next photo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div id="lb-content">
+      <img id="lb-img" src="" alt="" width="1200" height="900">
+      <p id="lb-caption"></p>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer id="footer" role="contentinfo">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo nav-logo">
+        <img src="images/logo.png" alt="Prestige Outdoor Living" class="nav-logo-img" width="220" height="60">
+      </a>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#process">Our Process</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="tel:4374212300">437-421-2300</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Prestige Outdoor Living. All rights reserved. Milton, Ontario.</p>
+    </div>
+  </footer>
+
+  <script defer>
+    'use strict';
+
+    // ── Cursor Glow ───────────────────────────────────────────────
+    (function() {
+      const glow = document.getElementById('cursor-glow');
+      if (!glow || matchMedia('(pointer: coarse)').matches) return;
+      let mx = -500, my = -500, cx = -500, cy = -500, rafId = null;
+      function tick() {
+        cx += (mx - cx) * 0.09;
+        cy += (my - cy) * 0.09;
+        glow.style.transform = `translate(calc(${cx}px - 50%), calc(${cy}px - 50%))`;
+        rafId = requestAnimationFrame(tick);
+      }
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; if (!rafId) tick(); });
+    })();
+
+    // ── Filter ────────────────────────────────────────────────────
+    (function() {
+      const btns  = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.gallery-item');
+      const grid  = document.getElementById('gallery-grid');
+      const empty = document.getElementById('gallery-empty');
+      const countEl = document.getElementById('count-label');
+
+      const categoryNames = {
+        all: 'all',
+        pool: 'Pool Installation',
+        land: 'Backyard Landscapes',
+        water: 'Water Features',
+        light: 'Lighting',
+        kitchen: 'Outdoor Kitchens',
+      };
+
+      function applyFilter(cat) {
+        // Fade grid out
+        grid.classList.add('fading');
+        setTimeout(() => {
+          let visible = 0;
+          items.forEach(item => {
+            const match = cat === 'all' || item.dataset.cat === cat;
+            item.classList.toggle('hidden', !match);
+            if (match) visible++;
+          });
+          // Update count
+          const label = cat === 'all' ? `Showing all ${visible} photos` : `Showing ${visible} photo${visible !== 1 ? 's' : ''} — ${categoryNames[cat]}`;
+          countEl.textContent = label;
+          // Show/hide empty state
+          empty.classList.toggle('visible', visible === 0);
+          // Fade grid back in
+          grid.classList.remove('fading');
+        }, 280);
+      }
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          applyFilter(btn.dataset.filter);
+        });
+      });
+    })();
+
+    // ── Lightbox ──────────────────────────────────────────────────
+    (function() {
+      const lb      = document.getElementById('lightbox');
+      const lbImg   = document.getElementById('lb-img');
+      const lbCap   = document.getElementById('lb-caption');
+      const lbClose = document.getElementById('lb-close');
+      const lbPrev  = document.getElementById('lb-prev');
+      const lbNext  = document.getElementById('lb-next');
+      const overlay = document.getElementById('lb-overlay');
+
+      let currentItems = [];
+      let currentIndex = 0;
+
+      function getVisibleItems() {
+        return Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+      }
+
+      function openLightbox(items, index) {
+        currentItems = items;
+        currentIndex = index;
+        showImage(index);
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+      }
+
+      function closeLightbox() {
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function showImage(index) {
+        const item = currentItems[index];
+        const img  = item.querySelector('img');
+        const cap  = item.dataset.caption || '';
+
+        lbImg.classList.add('switching');
+        setTimeout(() => {
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbCap.textContent = cap;
+          lbImg.classList.remove('switching');
+        }, 220);
+
+        lbPrev.style.display = index > 0 ? 'flex' : 'none';
+        lbNext.style.display = index < currentItems.length - 1 ? 'flex' : 'none';
+      }
+
+      // Open on item click
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', e => {
+          e.preventDefault();
+          const visible = getVisibleItems();
+          const idx = visible.indexOf(item);
+          if (idx !== -1) openLightbox(visible, idx);
+        });
+      });
+
+      lbClose.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', closeLightbox);
+
+      lbPrev.addEventListener('click', () => {
+        if (currentIndex > 0) { currentIndex--; showImage(currentIndex); }
+      });
+      lbNext.addEventListener('click', () => {
+        if (currentIndex < currentItems.length - 1) { currentIndex++; showImage(currentIndex); }
+      });
+
+      // Keyboard
+      document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape')     closeLightbox();
+        if (e.key === 'ArrowLeft')  { if (currentIndex > 0) { currentIndex--; showImage(currentIndex); } }
+        if (e.key === 'ArrowRight') { if (currentIndex < currentItems.length - 1) { currentIndex++; showImage(currentIndex); } }
+      });
+
+      // Touch swipe in lightbox
+      let lbTouchStartX = 0;
+      lb.addEventListener('touchstart', e => { lbTouchStartX = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - lbTouchStartX;
+        if (Math.abs(dx) < 40) return;
+        if (dx < 0 && currentIndex < currentItems.length - 1) { currentIndex++; showImage(currentIndex); }
+        if (dx > 0 && currentIndex > 0) { currentIndex--; showImage(currentIndex); }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

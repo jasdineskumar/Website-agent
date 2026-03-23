@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prestige Outdoor Living — Milton's trusted luxury fiberglass pool installation company. Custom pools starting at $59,999. Book your free consultation today.">
+  <meta property="og:title" content="Prestige Outdoor Living | Luxury Fiberglass Pool Installation — Milton, ON">
+  <meta property="og:description" content="Transform your backyard with a custom fiberglass pool. Fast 2–4 week installation, low maintenance, stunning designs. Serving Milton, Ontario.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://prestigeliving.ca">
+  <link rel="canonical" href="https://prestigeliving.ca/fiberglass-pool-installation-in-milton/">
+  <title>Prestige Outdoor Living | Luxury Fiberglass Pool Installation — Milton, Ontario</title>
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <style>
+    /* ─── CSS Custom Properties ─────────────────────────────── */
+    :root {
+      --color-bg: #0A0807;
+      --color-surface: #141210;
+      --color-raised: #1E1B17;
+      --color-gold: #B89866;
+      --color-gold-light: #D4B483;
+      --color-gold-dark: #8A6F48;
+      --color-fg: #F5F0E8;
+      --color-fg-muted: #9A9087;
+      --color-border: rgba(184,152,102,0.18);
+      --color-glass: rgba(255,255,255,0.04);
+      --color-glass-border: rgba(184,152,102,0.15);
+      --gold-gradient: linear-gradient(135deg, #D4B483, #B89866);
+      --transition-base: 250ms ease-out;
+    }
+
+    /* ─── Reset / Base ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* ─── Skip Link ──────────────────────────────────────────── */
+    .skip-link {
+      position: absolute; top: -100px; left: 1rem; z-index: 9999;
+      background: var(--color-gold); color: #0A0807;
+      padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ─── Typography Helpers ─────────────────────────────────── */
+    .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    .font-display-label {
+      font-family: 'Raleway', Inter, sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--color-gold);
+    }
+    .gold-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── Glass Panel ────────────────────────────────────────── */
+    .glass-panel {
+      background: var(--color-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--color-glass-border);
+      border-radius: 12px;
+    }
+
+    /* ─── Buttons ────────────────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: var(--gold-gradient);
+      color: #0A0807;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      box-shadow: 0 0 32px rgba(184,152,102,0.3);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    .btn-primary:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 48px rgba(184,152,102,0.5); }
+    .btn-primary:focus-visible { outline: 3px solid var(--color-gold-light); outline-offset: 3px; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: transparent;
+      color: var(--color-fg);
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      border: 1px solid rgba(245,240,232,0.3);
+      transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-base);
+    }
+    .btn-ghost:hover { border-color: var(--color-gold); background: rgba(184,152,102,0.08); transform: translateY(-2px); }
+    .btn-ghost:focus-visible { outline: 3px solid var(--color-gold-light); outline-offset: 3px; }
+
+    /* ─── Section Base ───────────────────────────────────────── */
+    .section-pad { padding: 5rem 1.25rem; }
+    @media (min-width: 768px) { .section-pad { padding: 7rem 2rem; } }
+    @media (min-width: 1024px) { .section-pad { padding: 9rem 4rem; } }
+    .container-xl { max-width: 1280px; margin: 0 auto; }
+    .section-overline { margin-bottom: 1rem; }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .section-body {
+      font-size: 1.05rem;
+      color: var(--color-fg-muted);
+      line-height: 1.75;
+      max-width: 620px;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.25rem 1.5rem;
+      transition: background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    #navbar.scrolled {
+      background: rgba(10,8,7,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-color: var(--color-border);
+      padding: 0.85rem 1.5rem;
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.65rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--color-fg); white-space: nowrap;
+    }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (min-width: 1024px) { .nav-links { display: flex; } }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--color-fg-muted);
+      transition: color var(--transition-base);
+    }
+    .nav-links a:hover { color: var(--color-gold); }
+    .nav-links a:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 4px; border-radius: 2px; }
+    .nav-cta-phone {
+      display: none;
+      font-size: 0.85rem; font-weight: 600;
+      background: var(--gold-gradient);
+      color: #0A0807;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    .nav-cta-phone:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(184,152,102,0.4); }
+    @media (min-width: 640px) { .nav-cta-phone { display: inline-flex; align-items: center; gap: 0.4rem; } }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: flex; flex-direction: column; gap: 5px; padding: 0.5rem;
+      border-radius: 6px; transition: background var(--transition-base);
+    }
+    .nav-hamburger:hover { background: rgba(184,152,102,0.1); }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--color-fg);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    @media (min-width: 1024px) { .nav-hamburger { display: none; } }
+    body.nav-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    body.nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
+    body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile Drawer */
+    #nav-drawer {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99;
+      background: rgba(10,8,7,0.97);
+      backdrop-filter: blur(24px);
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    body.nav-open #nav-drawer { opacity: 1; pointer-events: all; }
+    #nav-drawer a {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 600;
+      color: var(--color-fg);
+      transition: color var(--transition-base);
+    }
+    #nav-drawer a:hover { color: var(--color-gold); }
+    #nav-drawer .drawer-phone {
+      margin-top: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--color-gold);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    #hero {
+      position: relative; min-height: 100dvh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920&q=85&fm=webp');
+      background-size: cover; background-position: center 60%;
+      filter: brightness(0.38) saturate(1.15);
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(10,8,7,0.35) 0%, rgba(10,8,7,0.2) 50%, rgba(10,8,7,0.7) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1280px; margin: 0 auto;
+      padding: 8rem 1.25rem 4rem;
+      width: 100%;
+    }
+    @media (min-width: 768px) { .hero-content { padding: 8rem 2rem 5rem; } }
+    @media (min-width: 1024px) { .hero-content { padding: 9rem 4rem 6rem; max-width: 780px; } }
+
+    .hero-overline { margin-bottom: 1.5rem; opacity: 0; }
+    .hero-headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.75rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
+    .hero-headline em { font-style: italic; }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.75);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.25rem;
+      opacity: 0;
+    }
+    .hero-ctas {
+      display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+    }
+    .hero-trust {
+      display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center;
+      opacity: 0;
+      border-top: 1px solid rgba(184,152,102,0.2);
+      padding-top: 1.5rem;
+    }
+    .hero-trust-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; color: rgba(245,240,232,0.6);
+      font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 0.05em;
+    }
+    .stars { color: var(--color-gold); letter-spacing: 1px; }
+
+    /* ─── SECTION: WHY FIBERGLASS ────────────────────────────── */
+    #why-fiberglass { background: var(--color-surface); }
+    .why-grid {
+      display: grid; gap: 3rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 1024px) {
+      .why-grid { grid-template-columns: 1fr 1fr; align-items: center; gap: 5rem; }
+    }
+    .stat-card {
+      padding: 1.75rem 2rem;
+      border-left: 3px solid var(--color-gold);
+      transition: transform var(--transition-base), border-color var(--transition-base);
+    }
+    .stat-card:hover { transform: translateX(4px); }
+    .stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-label { font-size: 0.9rem; color: var(--color-fg-muted); }
+    .stat-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    /* ─── SECTION: SERVICES ──────────────────────────────────── */
+    #services { background: var(--color-bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+    .service-card {
+      padding: 2rem 1.75rem;
+      transition: transform var(--transition-base), border-color var(--transition-base);
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(184,152,102,0.4) !important;
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(184,152,102,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+      transition: background var(--transition-base);
+    }
+    .service-card:hover .service-icon { background: rgba(184,152,102,0.2); }
+    .service-title {
+      font-weight: 600; font-size: 1.05rem;
+      margin-bottom: 0.6rem; color: var(--color-fg);
+    }
+    .service-desc { font-size: 0.9rem; color: var(--color-fg-muted); line-height: 1.65; }
+
+    /* ─── SECTION: PROCESS ───────────────────────────────────── */
+    #process { background: var(--color-surface); }
+    .process-steps {
+      display: grid; gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) { .process-steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .process-steps { grid-template-columns: repeat(4, 1fr); } }
+    .process-step { position: relative; padding: 2rem 1.5rem; }
+    .step-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 5rem; font-weight: 700;
+      color: var(--color-gold); opacity: 0.12;
+      line-height: 1; margin-bottom: -1rem;
+      display: block;
+    }
+    .step-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.6rem; }
+    .step-desc { font-size: 0.9rem; color: var(--color-fg-muted); line-height: 1.65; }
+    .step-connector {
+      display: none;
+      position: absolute; top: 2.5rem; right: -1rem;
+      width: 2rem; height: 1px;
+      background: var(--color-border);
+    }
+    @media (min-width: 1024px) { .step-connector { display: block; } }
+    .step-connector:last-child { display: none; }
+
+    /* ─── SECTION: GALLERY ───────────────────────────────────── */
+    #gallery { background: var(--color-bg); overflow: hidden; }
+    .gallery-header { padding: 0 1.25rem; margin-bottom: 2.5rem; }
+    @media (min-width: 768px) { .gallery-header { padding: 0 2rem; } }
+    @media (min-width: 1024px) { .gallery-header { padding: 0 4rem; } }
+    .gallery-swiper { padding: 0 1.25rem 3rem !important; }
+    @media (min-width: 768px) { .gallery-swiper { padding: 0 2rem 3rem !important; } }
+    .gallery-slide {
+      border-radius: 12px; overflow: hidden; position: relative;
+      aspect-ratio: 4/3;
+    }
+    .gallery-slide img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.92) saturate(1.1);
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+    .gallery-slide:hover img { transform: scale(1.04); filter: brightness(1) saturate(1.2); }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.25rem 1.25rem 1rem;
+      background: linear-gradient(to top, rgba(10,8,7,0.85), transparent);
+      font-size: 0.8rem; color: rgba(245,240,232,0.75);
+      font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 0.06em;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: var(--color-gold) !important;
+      background: rgba(10,8,7,0.7);
+      width: 44px !important; height: 44px !important;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      transition: background var(--transition-base);
+    }
+    .swiper-button-next:hover, .swiper-button-prev:hover { background: rgba(184,152,102,0.15); }
+    .swiper-button-next::after, .swiper-button-prev::after { font-size: 1rem !important; font-weight: 700; }
+    .swiper-pagination-bullet { background: var(--color-fg-muted) !important; opacity: 0.5 !important; }
+    .swiper-pagination-bullet-active { background: var(--color-gold) !important; opacity: 1 !important; }
+
+    /* ─── SECTION: PRICING ───────────────────────────────────── */
+    #pricing { background: var(--color-surface); }
+    .pricing-grid {
+      display: grid; gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); align-items: start; } }
+    .pricing-card {
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+    .pricing-card.featured {
+      border-color: rgba(184,152,102,0.4) !important;
+      box-shadow: 0 8px 48px rgba(184,152,102,0.15);
+    }
+    .pricing-badge {
+      position: absolute; top: -12px; right: 1.5rem;
+      background: var(--gold-gradient);
+      color: #0A0807;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.9rem; border-radius: 100px;
+    }
+    .pricing-label { font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 0.5rem; }
+    .pricing-size { font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .pricing-starting { font-size: 0.8rem; color: var(--color-fg-muted); margin-bottom: 0.25rem; }
+    .pricing-price {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-includes { margin-bottom: 2rem; }
+    .pricing-includes h4 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-fg-muted); margin-bottom: 0.75rem; }
+    .pricing-item {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.92rem; color: var(--color-fg-muted);
+      margin-bottom: 0.5rem;
+    }
+    .pricing-item svg { flex-shrink: 0; margin-top: 2px; color: var(--color-gold); }
+    .pricing-disclaimer {
+      margin-top: 2rem;
+      font-size: 0.8rem; color: var(--color-fg-muted);
+      font-style: italic; text-align: center;
+      max-width: 640px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ─── SECTION: COLORS ────────────────────────────────────── */
+    #colors { background: var(--color-bg); }
+    .color-collection { margin-bottom: 3rem; }
+    .collection-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem; font-weight: 600;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .swatches-row { display: flex; flex-wrap: wrap; gap: 1.25rem 1.75rem; }
+    .swatch-item { text-align: center; cursor: pointer; }
+    .swatch-circle {
+      width: 64px; height: 64px; border-radius: 50%;
+      margin: 0 auto 0.6rem;
+      border: 2px solid rgba(184,152,102,0.15);
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    }
+    .swatch-item:hover .swatch-circle { transform: scale(1.15); box-shadow: 0 0 0 3px rgba(184,152,102,0.5); border-color: transparent; }
+    .swatch-item.selected .swatch-circle { box-shadow: 0 0 0 3px var(--color-gold); border-color: transparent; transform: scale(1.1); }
+    .swatch-name { font-size: 0.75rem; color: var(--color-fg-muted); font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 0.05em; }
+    .swatch-item.selected .swatch-name { color: var(--color-gold); font-weight: 400; }
+
+    /* ─── SECTION: TRUST ─────────────────────────────────────── */
+    #trust { background: var(--color-surface); }
+    .trust-logos {
+      display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: center;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .trust-logo-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--color-fg-muted);
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      transition: color var(--transition-base), border-color var(--transition-base);
+    }
+    .trust-logo-item:hover { color: var(--color-gold); border-color: var(--color-gold); }
+    .testimonials-grid {
+      display: grid; gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
+    .testimonial-card { padding: 2rem; }
+    .testimonial-stars { color: var(--color-gold); margin-bottom: 0.85rem; font-size: 0.95rem; letter-spacing: 2px; }
+    .testimonial-quote { font-size: 0.95rem; line-height: 1.7; color: var(--color-fg-muted); margin-bottom: 1.25rem; font-style: italic; }
+    .testimonial-author { font-size: 0.85rem; font-weight: 600; color: var(--color-fg); }
+    .testimonial-location { font-size: 0.78rem; color: var(--color-fg-muted); }
+
+    /* ─── SECTION: CONTACT ───────────────────────────────────── */
+    #contact { background: var(--color-bg); }
+    .contact-grid {
+      display: grid; gap: 3.5rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .contact-info-phone {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      transition: color var(--transition-base);
+    }
+    .contact-info-phone:hover { color: var(--color-gold); }
+    .contact-detail { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; }
+    .contact-detail svg { flex-shrink: 0; margin-top: 2px; color: var(--color-gold); }
+    .contact-detail-text { font-size: 0.95rem; color: var(--color-fg-muted); line-height: 1.5; }
+    .social-links { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .social-link {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid var(--color-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-fg-muted);
+      transition: color var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+    }
+    .social-link:hover { color: var(--color-gold); border-color: var(--color-gold); background: rgba(184,152,102,0.08); }
+
+    /* Form */
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block; font-size: 0.85rem; font-weight: 500;
+      color: var(--color-fg-muted); margin-bottom: 0.45rem;
+    }
+    .form-required { color: var(--color-gold); margin-left: 2px; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(184,152,102,0.2);
+      color: var(--color-fg);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem;
+      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+      outline: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(184,152,102,0.15);
+    }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-select option { background: var(--color-raised); }
+    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(154,144,135,0.5); }
+    .form-error {
+      font-size: 0.78rem; color: #DC2626;
+      margin-top: 0.3rem; display: none;
+    }
+    .form-group.has-error .form-input,
+    .form-group.has-error .form-select,
+    .form-group.has-error .form-textarea { border-color: #DC2626; }
+    .form-group.has-error .form-error { display: block; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 640px) { .form-row { grid-template-columns: repeat(2, 1fr); } }
+    .btn-submit {
+      width: 100%;
+      background: var(--gold-gradient);
+      color: #0A0807;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem; font-weight: 600;
+      padding: 1.1rem;
+      border-radius: 8px;
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(184,152,102,0.4); }
+    .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+    .btn-submit:focus-visible { outline: 3px solid var(--color-gold-light); outline-offset: 3px; }
+    #form-success {
+      display: none;
+      padding: 2.5rem; text-align: center; border-radius: 12px;
+      background: rgba(184,152,102,0.08);
+      border: 1px solid rgba(184,152,102,0.3);
+    }
+    #form-success.visible { display: block; }
+    .success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .success-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .success-sub { font-size: 0.95rem; color: var(--color-fg-muted); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    #footer {
+      background: var(--color-surface);
+      border-top: 1px solid rgba(184,152,102,0.15);
+      padding: 3.5rem 1.25rem 2rem;
+    }
+    @media (min-width: 768px) { #footer { padding: 4rem 2rem 2.5rem; } }
+    @media (min-width: 1024px) { #footer { padding: 4.5rem 4rem 2.5rem; } }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top {
+      display: grid; gap: 2.5rem;
+      grid-template-columns: 1fr;
+      margin-bottom: 3rem;
+    }
+    @media (min-width: 768px) { .footer-top { grid-template-columns: 1.5fr 1fr 1fr; } }
+    .footer-logo-col .nav-logo { margin-bottom: 0.75rem; }
+    .footer-tagline { font-size: 0.88rem; color: var(--color-fg-muted); line-height: 1.6; max-width: 240px; }
+    .footer-heading { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.9rem; color: var(--color-fg-muted); transition: color var(--transition-base); }
+    .footer-links a:hover { color: var(--color-gold); }
+    .footer-contact-item { display: flex; gap: 0.6rem; align-items: flex-start; margin-bottom: 0.65rem; }
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: var(--color-gold); }
+    .footer-contact-item span { font-size: 0.88rem; color: var(--color-fg-muted); line-height: 1.5; }
+    .footer-bottom {
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.5rem;
+      display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;
+      font-size: 0.8rem; color: var(--color-fg-muted);
+    }
+    .footer-legal-links { display: flex; gap: 1.25rem; }
+    .footer-legal-links a { color: var(--color-fg-muted); transition: color var(--transition-base); }
+    .footer-legal-links a:hover { color: var(--color-gold); }
+
+    /* ─── MOBILE CTA BAR ─────────────────────────────────────── */
+    #mobile-cta-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
+      display: flex;
+      background: rgba(10,8,7,0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--color-border);
+      padding: 0.75rem 1rem;
+      padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+      gap: 0.75rem;
+    }
+    @media (min-width: 1024px) { #mobile-cta-bar { display: none; } }
+    #mobile-cta-bar a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 0.88rem; font-weight: 600;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    #mobile-cta-bar .mobile-call {
+      background: var(--gold-gradient); color: #0A0807;
+    }
+    #mobile-cta-bar .mobile-book {
+      background: transparent; color: var(--color-gold);
+      border: 1px solid var(--color-gold);
+    }
+    #mobile-cta-bar a:hover { transform: translateY(-1px); }
+    @media (max-width: 1023px) {
+      main { padding-bottom: 80px; }
+    }
+
+    /* ─── ANIMATIONS (initial hidden states) ─────────────────── */
+    [data-animate] { opacity: 0; transform: translateY(30px); }
+
+    /* ─── REDUCED MOTION ─────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      [data-animate] { opacity: 1 !important; transform: none !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ─── FOCUS STYLES ───────────────────────────────────────── */
+    :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: 4px; }
+
+    /* ─── SCROLL EXPANSION HERO ─────────────────────────────── */
+    #scroll-expansion-hero {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      min-height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg);
+    }
+    #seh-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('https://images.unsplash.com/photo-1562932831-afcfe48b5786?w=1920&q=80&fm=webp');
+      background-size: cover; background-position: center 35%;
+      filter: brightness(0.22) saturate(0.5);
+      will-change: opacity;
+    }
+    #seh-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,8,7,0.5) 0%, rgba(10,8,7,0.88) 100%);
+    }
+    #seh-media-wrap {
+      position: absolute; top: 50%; left: 50%;
+      width: 100vw; height: 100dvh;
+      transform: translate(-50%, -50%) scale(0.22);
+      transform-origin: center center;
+      z-index: 2;
+      border-radius: 72px;
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(184,152,102,0.12);
+      will-change: transform, border-radius;
+    }
+    #seh-media-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none;
+    }
+    #seh-media-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.42);
+      pointer-events: none; will-change: opacity;
+    }
+    #seh-title {
+      position: relative; z-index: 3;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0;
+      pointer-events: none; user-select: none; text-align: center;
+    }
+    .seh-word {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      background: linear-gradient(135deg, #EDD9A3, #B89866);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 2px 28px rgba(0,0,0,0.6));
+      will-change: transform, opacity;
+    }
+    .seh-word em { font-style: italic; }
+    #seh-hints {
+      position: absolute; bottom: 2.5rem; left: 0; right: 0; z-index: 3;
+      display: flex; justify-content: space-between; padding: 0 2.5rem;
+      pointer-events: none; user-select: none;
+    }
+    .seh-hint {
+      font-family: 'Raleway', sans-serif; font-weight: 300;
+      font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(212,180,131,0.78); will-change: transform, opacity;
+    }
+    #seh-scroll-indicator {
+      position: absolute; bottom: 5.5rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      pointer-events: none; user-select: none; will-change: opacity;
+    }
+    .seh-si-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(184,152,102,0.7);
+      animation: sehDotPulse 1.8s ease-in-out infinite;
+    }
+    .seh-si-dot:nth-child(2) { animation-delay: 0.3s; }
+    .seh-si-dot:nth-child(3) { animation-delay: 0.6s; }
+    @keyframes sehDotPulse {
+      0%, 100% { opacity: 0.2; transform: translateY(-3px) scale(0.8); }
+      50% { opacity: 1; transform: translateY(3px) scale(1); }
+    }
+
+    /* ─── CURSOR GLOW ────────────────────────────────────────── */
+    #cursor-glow {
+      position: fixed; top: 0; left: 0; z-index: 9997;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,152,102,0.07) 0%, transparent 68%);
+      pointer-events: none; user-select: none;
+      transition: width 0.4s ease, height 0.4s ease, background 0.4s ease;
+    }
+    #cursor-glow.on-cta {
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(184,152,102,0.18) 0%, transparent 70%);
+    }
+    @media (pointer: coarse) { #cursor-glow { display: none; } }
+
+    /* ─── GALLERY LIGHTBOX ───────────────────────────────────── */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 2000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox.open { opacity: 1; pointer-events: all; }
+    #lb-overlay {
+      position: absolute; inset: 0;
+      background: rgba(10,8,7,0.93);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    #lb-content {
+      position: relative; z-index: 1;
+      max-width: min(92vw, 1280px);
+      display: flex; flex-direction: column; align-items: center;
+    }
+    #lb-img {
+      max-width: 100%; max-height: 82vh;
+      border-radius: 10px;
+      box-shadow: 0 0 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(184,152,102,0.15);
+      object-fit: contain;
+    }
+    #lb-caption {
+      text-align: center; margin-top: 0.85rem;
+      color: var(--color-fg-muted); font-size: 0.82rem;
+      font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 0.06em;
+    }
+    #lb-close {
+      position: absolute; top: -2.5rem; right: 0;
+      color: var(--color-fg-muted); cursor: pointer;
+      background: none; border: none; padding: 0.25rem;
+      transition: color var(--transition-base);
+    }
+    #lb-close:hover { color: var(--color-gold); }
+    .gallery-slide img { cursor: zoom-in; }
+
+    /* ─── NAV ACTIVE ─────────────────────────────────────────── */
+    .nav-links a.active { color: var(--color-gold); }
+    .nav-links a.active::after {
+      content: ''; display: block;
+      width: 100%; height: 1px;
+      background: var(--color-gold);
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════════════════ -->
+  <header id="navbar" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" aria-label="Prestige Outdoor Living — home">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
+          <ellipse cx="14" cy="17" rx="11" ry="7" stroke="#B89866" stroke-width="1.5" fill="none"/>
+          <ellipse cx="14" cy="17" rx="6" ry="3.5" stroke="#B89866" stroke-width="1" fill="rgba(184,152,102,0.1)"/>
+          <path d="M8 14 Q14 8 20 14" stroke="#B89866" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="14" cy="10" r="2" fill="#B89866" opacity="0.6"/>
+        </svg>
+        Prestige Outdoor Living
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Fiberglass Pools</a></li>
+        <li><a href="#process">The Process</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="tel:4374212300" class="nav-cta-phone" aria-label="Call us at 437-421-2300">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        437-421-2300
+      </a>
+
+      <button class="nav-hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <a href="#hero" class="drawer-link">Home</a>
+    <a href="#services" class="drawer-link">Fiberglass Pools</a>
+    <a href="#process" class="drawer-link">The Process</a>
+    <a href="#gallery" class="drawer-link">Gallery</a>
+    <a href="#pricing" class="drawer-link">Pricing</a>
+    <a href="#contact" class="drawer-link">Contact</a>
+    <a href="tel:4374212300" class="drawer-phone">437-421-2300</a>
+  </div>
+
+  <main id="main">
+    <!-- ═══════════════════════════════════════════════════════════
+         SCROLL EXPANSION HERO
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="scroll-expansion-hero" aria-label="Prestige Outdoor Living — scroll to begin your journey">
+      <!-- Background image (fades out as card expands) -->
+      <div id="seh-bg" role="img" aria-label="Luxury pool backdrop"></div>
+
+      <!-- Expanding media card -->
+      <div id="seh-media-wrap" role="img" aria-label="Custom fiberglass pool by Prestige Outdoor Living, Milton Ontario">
+        <img
+          src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1920&q=85&fm=webp"
+          alt="Stunning custom fiberglass pool with crystal clear water"
+          width="1920" height="1280"
+          fetchpriority="high"
+        >
+        <div id="seh-media-overlay" aria-hidden="true"></div>
+      </div>
+
+      <!-- Title — words split apart on scroll -->
+      <div id="seh-title" aria-hidden="true">
+        <span class="seh-word" id="seh-word-1">Backyard</span>
+        <span class="seh-word" id="seh-word-2"><em>Luxury.</em></span>
+      </div>
+
+      <!-- Ambient hints (location + scroll cue) -->
+      <div id="seh-hints" aria-hidden="true">
+        <span class="seh-hint" id="seh-hint-left">Milton, Ontario</span>
+        <span class="seh-hint" id="seh-hint-right">Scroll to Explore</span>
+      </div>
+
+      <!-- Animated scroll dots -->
+      <div id="seh-scroll-indicator" aria-hidden="true">
+        <div class="seh-si-dot"></div>
+        <div class="seh-si-dot"></div>
+        <div class="seh-si-dot"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="hero" aria-label="Hero — Prestige Outdoor Living">
+      <div class="hero-bg" id="hero-bg" role="img" aria-label="Luxury outdoor pool at sunset"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="font-display-label hero-overline">Backyard Pool Installation &mdash; Milton, Ontario</p>
+        <h1 class="hero-headline">
+          Take a Dip in<br>
+          Backyard <em class="gold-text">Luxury.</em>
+        </h1>
+        <p class="hero-sub">Custom fiberglass pools installed by Milton's trusted experts. Fast 2–4 week installation. Low maintenance. Built to last decades.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Request a Meeting</a>
+          <a href="#gallery" class="btn-ghost">View Our Work &darr;</a>
+        </div>
+        <div class="hero-trust" aria-label="Trust indicators">
+          <div class="hero-trust-item">
+            <span class="stars" aria-label="5 stars">★★★★★</span>
+            <span>Rated on Homestars</span>
+          </div>
+          <div class="hero-trust-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Pool &amp; Hot Tub Council of Canada Member
+          </div>
+          <div class="hero-trust-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            Authorized MOVA Dealer
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         WHY FIBERGLASS
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="why-fiberglass" class="section-pad" aria-label="Why choose fiberglass pools">
+      <div class="container-xl">
+        <div class="why-grid">
+          <div>
+            <p class="font-display-label section-overline" data-animate>The Smarter Pool Choice</p>
+            <h2 class="section-title" data-animate data-delay="0.1">All the Luxury.<br>None of the Hassle.</h2>
+            <p class="section-body" data-animate data-delay="0.2">Fiberglass pools offer everything concrete pools do — and then some. With a non-porous surface that resists algae, dramatically lower chemical requirements, and installation measured in weeks rather than months, they're the intelligent choice for Milton homeowners who want luxury without compromise.</p>
+            <p class="section-body" data-animate data-delay="0.3" style="margin-top:1.25rem;">Our team has installed dozens of pools across the Milton area, and we handle everything from permits to poolside landscaping — so you can focus on what matters: enjoying your backyard.</p>
+          </div>
+          <div class="stat-cards" data-animate data-delay="0.15">
+            <div class="stat-card glass-panel">
+              <span class="stat-number gold-text" data-count="4" data-suffix=" Weeks">4 Weeks</span>
+              <p class="stat-label">Typical installation time — vs 3–6 months for concrete</p>
+            </div>
+            <div class="stat-card glass-panel">
+              <span class="stat-number gold-text" data-count="50" data-suffix="%+ Less">50%+ Less</span>
+              <p class="stat-label">Maintenance chemicals needed vs concrete pools</p>
+            </div>
+            <div class="stat-card glass-panel">
+              <span class="stat-number gold-text" data-count="30" data-suffix="+ Years">30+ Years</span>
+              <p class="stat-label">Expected fiberglass pool lifespan with proper care</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SERVICES
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="services" class="section-pad" aria-label="Our services">
+      <div class="container-xl">
+        <div style="text-align:center; margin-bottom: 3.5rem;">
+          <p class="font-display-label section-overline" data-animate>What We Offer</p>
+          <h2 class="section-title" data-animate data-delay="0.1" style="display:inline-block; max-width:600px;">Everything Your Dream Pool Needs</h2>
+        </div>
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <article class="service-card glass-panel" data-animate data-delay="0">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B89866" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <h3 class="service-title">Custom Pool Design</h3>
+            <p class="service-desc">Every property is different. We design pools that complement your yard's layout, your lifestyle, and your vision — from compact urban retreats to expansive resort-style installations.</p>
+          </article>
+          <!-- Card 2 -->
+          <article class="service-card glass-panel" data-animate data-delay="0.07">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B89866" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="14"/></svg>
+            </div>
+            <h3 class="service-title">Integrated Spa Options</h3>
+            <p class="service-desc">Seamlessly blend a spa into your pool design for year-round hydrotherapy. Enjoy heated relaxation steps away from your pool — no separate installation required.</p>
+          </article>
+          <!-- Card 3 -->
+          <article class="service-card glass-panel" data-animate data-delay="0.14">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B89866" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            </div>
+            <h3 class="service-title">Custom Water Features</h3>
+            <p class="service-desc">Cascading waterfalls, elegant fountains, and playful bubblers transform your pool into a sensory experience. We design and install custom water features that complement every pool style.</p>
+          </article>
+          <!-- Card 4 -->
+          <article class="service-card glass-panel" data-animate data-delay="0.21">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B89866" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="service-title">Smart Pool Technology</h3>
+            <p class="service-desc">Control your pool from anywhere. Automated sanitization, temperature management, and smart scheduling keep your pool perfect with minimal effort — right from your smartphone.</p>
+          </article>
+          <!-- Card 5 -->
+          <article class="service-card glass-panel" data-animate data-delay="0.28">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B89866" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h3 class="service-title">LED Lighting Systems</h3>
+            <p class="service-desc">Set the mood with colour-changing LED lighting that makes your pool the centrepiece of any evening. From soft white ambiance to vibrant colour shows — fully customizable.</p>
+          </article>
+          <!-- Card 6 -->
+          <article class="service-card glass-panel" data-animate data-delay="0.35">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B89866" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.82C2 22 2 22 2 22s2.45-1.1 5.17-2.5C8.5 18.77 9.73 18 11 17c0 0 2-5.5 6-9"/><path d="M17 8c0 0-2.22 4.13-3 6"/></svg>
+            </div>
+            <h3 class="service-title">Poolside Landscaping</h3>
+            <p class="service-desc">Complete your outdoor sanctuary with professional landscaping that frames your pool beautifully — natural stone decking, lush plantings, privacy screens, and outdoor living spaces.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         THE PROCESS
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="process" class="section-pad" aria-label="Our installation process">
+      <div class="container-xl">
+        <div style="text-align:center; margin-bottom:3.5rem;">
+          <p class="font-display-label section-overline" data-animate>How It Works</p>
+          <h2 class="section-title" data-animate data-delay="0.1" style="display:inline-block;">From Dream to Done in 4 Steps</h2>
+          <p class="section-body" data-animate data-delay="0.2" style="margin: 1rem auto 0; text-align:center;">We handle every detail — so your only job is to enjoy the result.</p>
+        </div>
+        <div class="process-steps">
+          <article class="process-step glass-panel" data-animate data-delay="0">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3 class="step-title">Free Consultation</h3>
+            <p class="step-desc">We meet at your property, discuss your vision, budget, and timeline. No pressure, no commitment — just an honest conversation about your dream pool.</p>
+          </article>
+          <article class="process-step glass-panel" data-animate data-delay="0.1">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3 class="step-title">Design &amp; Permitting</h3>
+            <p class="step-desc">We create your custom pool design and handle all local permits with the City of Milton. You approve the design — we take care of the paperwork.</p>
+          </article>
+          <article class="process-step glass-panel" data-animate data-delay="0.2">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3 class="step-title">Professional Installation</h3>
+            <p class="step-desc">Our expert crew completes your fiberglass pool installation in just 2–4 weeks. We coordinate all trades and keep your property clean and respected throughout.</p>
+          </article>
+          <article class="process-step glass-panel" data-animate data-delay="0.3">
+            <span class="step-num" aria-hidden="true">04</span>
+            <h3 class="step-title">Final Walkthrough</h3>
+            <p class="step-desc">We walk you through every system — your salt system, heater, LED controls, and smart technology — so you're confident and fully equipped from day one.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         GALLERY
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="gallery" class="section-pad" aria-label="Pool installation gallery">
+      <div class="gallery-header">
+        <div class="container-xl" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <p class="font-display-label section-overline" data-animate>Our Work</p>
+            <h2 class="section-title" data-animate data-delay="0.1">Luxury Pools,<br>Delivered.</h2>
+          </div>
+          <a href="#contact" class="btn-ghost" data-animate data-delay="0.2">Get Your Quote &rarr;</a>
+        </div>
+      </div>
+
+      <div class="swiper gallery-swiper" aria-label="Pool gallery carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide gallery-slide">
+            <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=800&q=80&fm=webp" alt="Luxury fiberglass pool with spa and waterfall feature, Milton Ontario" width="800" height="600" fetchpriority="high">
+            <div class="gallery-caption" aria-hidden="true">Milton, ON — Custom 14×28 with Integrated Spa</div>
+          </div>
+          <div class="swiper-slide gallery-slide">
+            <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=800&q=80&fm=webp" alt="Stunning backyard pool at dusk with LED lighting" width="800" height="600" loading="lazy">
+            <div class="gallery-caption" aria-hidden="true">Milton, ON — LED Lighting Package</div>
+          </div>
+          <div class="swiper-slide gallery-slide">
+            <img src="https://images.unsplash.com/photo-1562932831-afcfe48b5786?w=800&q=80&fm=webp" alt="Crystal clear fiberglass pool with stone decking" width="800" height="600" loading="lazy">
+            <div class="gallery-caption" aria-hidden="true">Halton Hills, ON — 12×24 Fiberglass with Stone Deck</div>
+          </div>
+          <div class="swiper-slide gallery-slide">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80&fm=webp" alt="Resort-style pool with waterfall and landscaping" width="800" height="600" loading="lazy">
+            <div class="gallery-caption" aria-hidden="true">Oakville, ON — Resort Style with Waterfall Feature</div>
+          </div>
+          <div class="swiper-slide gallery-slide">
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80&fm=webp" alt="Evening pool scene with warm lights and landscaping" width="800" height="600" loading="lazy">
+            <div class="gallery-caption" aria-hidden="true">Milton, ON — Evening Ambiance Package</div>
+          </div>
+          <div class="swiper-slide gallery-slide">
+            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&q=80&fm=webp" alt="Luxury pool with outdoor kitchen and patio" width="800" height="600" loading="lazy">
+            <div class="gallery-caption" aria-hidden="true">Burlington, ON — Full Outdoor Living Transformation</div>
+          </div>
+        </div>
+        <div class="swiper-button-prev" aria-label="Previous slide"></div>
+        <div class="swiper-button-next" aria-label="Next slide"></div>
+        <div class="swiper-pagination" role="tablist" aria-label="Gallery slides"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PRICING
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="pricing" class="section-pad" aria-label="Pool pricing options">
+      <div class="container-xl">
+        <div style="text-align:center; margin-bottom:3.5rem;">
+          <p class="font-display-label section-overline" data-animate>Transparent Pricing</p>
+          <h2 class="section-title" data-animate data-delay="0.1" style="display:inline-block;">Luxury Pools, Clear Costs</h2>
+          <p class="section-body" data-animate data-delay="0.2" style="margin: 1rem auto 0; text-align:center;">Every package includes professional installation, salt water system with heater, and LED lighting.</p>
+        </div>
+        <div class="pricing-grid">
+          <!-- Card 1 -->
+          <article class="pricing-card glass-panel" data-animate data-delay="0">
+            <p class="pricing-label">Starter Luxury</p>
+            <h3 class="pricing-size">12&prime; &times; 24&prime; Pool</h3>
+            <p class="pricing-starting">Starting at</p>
+            <p class="pricing-price gold-text">$59,999</p>
+            <div class="pricing-includes">
+              <h4>Package Includes</h4>
+              <div class="pricing-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Professional fiberglass pool installation</span>
+              </div>
+              <div class="pricing-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Salt water system with heater</span>
+              </div>
+              <div class="pricing-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>1 LED lighting fixture</span>
+              </div>
+              <div class="pricing-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Final walkthrough &amp; system training</span>
+              </div>
+            </div>
+            <a href="#contact" class="btn-ghost" style="width:100%; justify-content:center;">Book a Meeting</a>
+          </article>
+          <!-- Card 2 — Featured -->
+          <article class="pricing-card glass-panel featured" data-animate data-delay="0.12">
+            <div class="pricing-badge">Most Popular</div>
+            <p class="pricing-label">Premium Luxury</p>
+            <h3 class="pricing-size">14&prime; &times; 28&prime; Pool</h3>
+            <p class="pricing-starting">Starting at</p>
+            <p class="pricing-price gold-text">$69,999</p>
+            <div class="pricing-includes">
+              <h4>Package Includes</h4>
+              <div class="pricing-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Professional fiberglass pool installation</span>
+              </div>
+              <div class="pricing-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Salt water system with heater</span>
+              </div>
+              <div class="pricing-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>1 LED lighting fixture</span>
+              </div>
+              <div class="pricing-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Final walkthrough &amp; system training</span>
+              </div>
+            </div>
+            <a href="#contact" class="btn-primary" style="width:100%; justify-content:center;">Book a Meeting</a>
+          </article>
+        </div>
+        <p class="pricing-disclaimer" data-animate data-delay="0.2">*Prices are subject to site conditions, customizations, and local permit requirements. Contact us for your personalized quote.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         COLOR SELECTION
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="colors" class="section-pad" aria-label="Pool color options">
+      <div class="container-xl">
+        <div style="margin-bottom:3rem;">
+          <p class="font-display-label section-overline" data-animate>Piscines MOVA Collection</p>
+          <h2 class="section-title" data-animate data-delay="0.1">Choose Your Perfect Finish</h2>
+          <p class="section-body" data-animate data-delay="0.2">As an authorized Piscines MOVA dealer, we offer an exclusive range of premium finishes. Each colour is engineered to look stunning for decades.</p>
+        </div>
+
+        <div class="color-collection" data-animate data-delay="0.1">
+          <h3 class="collection-title">Pure Collection</h3>
+          <div class="swatches-row" role="list" aria-label="Pure collection colour swatches">
+            <div class="swatch-item" role="listitem" tabindex="0" aria-label="Loup Gris — Wolf Gray">
+              <div class="swatch-circle" style="background: linear-gradient(135deg, #9BA7AF, #7A8891);" aria-hidden="true"></div>
+              <span class="swatch-name">Loup Gris<br><small style="font-size:0.65rem; opacity:0.7;">Wolf Gray</small></span>
+            </div>
+            <div class="swatch-item" role="listitem" tabindex="0" aria-label="Blanc Coton — Cotton White">
+              <div class="swatch-circle" style="background: linear-gradient(135deg, #F5F0E8, #EAE5DD);" aria-hidden="true"></div>
+              <span class="swatch-name">Blanc Coton<br><small style="font-size:0.65rem; opacity:0.7;">Cotton White</small></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-collection" data-animate data-delay="0.15">
+          <h3 class="collection-title">Nature Collection</h3>
+          <div class="swatches-row" role="list" aria-label="Nature collection colour swatches">
+            <div class="swatch-item" role="listitem" tabindex="0" aria-label="River Clays">
+              <div class="swatch-circle" style="background: linear-gradient(135deg, #B08060, #8A6040);" aria-hidden="true"></div>
+              <span class="swatch-name">River Clays</span>
+            </div>
+            <div class="swatch-item" role="listitem" tabindex="0" aria-label="Rocky Bottom">
+              <div class="swatch-circle" style="background: linear-gradient(135deg, #7A7268, #605850);" aria-hidden="true"></div>
+              <span class="swatch-name">Rocky Bottom</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-collection" data-animate data-delay="0.2">
+          <h3 class="collection-title">Mineral Collection</h3>
+          <div class="swatches-row" role="list" aria-label="Mineral collection colour swatches">
+            <div class="swatch-item" role="listitem" tabindex="0" aria-label="Lunar Grey">
+              <div class="swatch-circle" style="background: linear-gradient(135deg, #8A9BA8, #6A7B88);" aria-hidden="true"></div>
+              <span class="swatch-name">Lunar Grey</span>
+            </div>
+            <div class="swatch-item" role="listitem" tabindex="0" aria-label="Midnight Sky">
+              <div class="swatch-circle" style="background: linear-gradient(135deg, #2C3E50, #1A2535);" aria-hidden="true"></div>
+              <span class="swatch-name">Midnight Sky</span>
+            </div>
+            <div class="swatch-item" role="listitem" tabindex="0" aria-label="Desert Mirage">
+              <div class="swatch-circle" style="background: linear-gradient(135deg, #C8A87C, #A8885C);" aria-hidden="true"></div>
+              <span class="swatch-name">Desert Mirage</span>
+            </div>
+            <div class="swatch-item" role="listitem" tabindex="0" aria-label="Sea Floor">
+              <div class="swatch-circle" style="background: linear-gradient(135deg, #3D7B82, #2A5B62);" aria-hidden="true"></div>
+              <span class="swatch-name">Sea Floor</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;" data-animate data-delay="0.25">
+          <p style="font-size: 0.85rem; color: var(--color-fg-muted); font-style: italic;">Colour representations are approximate. Request physical swatches during your free consultation to see the true finish in your outdoor light conditions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         TRUST SIGNALS + TESTIMONIALS
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="trust" class="section-pad" aria-label="Trust credentials and customer reviews">
+      <div class="container-xl">
+        <div style="text-align:center; margin-bottom:3rem;">
+          <p class="font-display-label section-overline" data-animate>Trusted &amp; Verified</p>
+          <h2 class="section-title" data-animate data-delay="0.1" style="display:inline-block;">Milton's Trusted<br>Pool Experts</h2>
+        </div>
+
+        <div class="trust-logos" role="list" aria-label="Industry affiliations and review platforms" data-animate>
+          <div class="trust-logo-item" role="listitem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Pool &amp; Hot Tub Council of Canada
+          </div>
+          <div class="trust-logo-item" role="listitem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            Authorized MOVA Dealer
+          </div>
+          <div class="trust-logo-item" role="listitem">Homestars</div>
+          <div class="trust-logo-item" role="listitem">TrustedPros.ca</div>
+          <div class="trust-logo-item" role="listitem">Houzz</div>
+          <div class="trust-logo-item" role="listitem">OurHomes.ca</div>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card glass-panel" data-animate data-delay="0">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"Prestige Outdoor Living completely transformed our backyard. The installation took just under 3 weeks and the team was professional every step of the way. Our pool is absolutely stunning."</p>
+            <p class="testimonial-author">Sarah M.</p>
+            <p class="testimonial-location">Milton, ON</p>
+          </article>
+          <article class="testimonial-card glass-panel" data-animate data-delay="0.1">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"We got three quotes for our pool project. Prestige was not the cheapest, but the quality of their work and the detail in their design process made it an easy decision. Worth every penny."</p>
+            <p class="testimonial-author">David &amp; Karen T.</p>
+            <p class="testimonial-location">Halton Hills, ON</p>
+          </article>
+          <article class="testimonial-card glass-panel" data-animate data-delay="0.2">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"The Midnight Sky finish we chose looks incredible. The LED lighting at night takes it to another level. The whole process — from consultation to final walkthrough — was seamless. Highly recommend."</p>
+            <p class="testimonial-author">Michael R.</p>
+            <p class="testimonial-location">Milton, ON</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CONTACT
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="contact" class="section-pad" aria-label="Contact us and book a consultation">
+      <div class="container-xl">
+        <div class="contact-grid">
+          <!-- Left: info -->
+          <div>
+            <p class="font-display-label section-overline" data-animate>Ready to Start?</p>
+            <h2 class="section-title" data-animate data-delay="0.1">Book Your Free<br>Consultation</h2>
+            <p class="section-body" data-animate data-delay="0.2" style="margin-bottom: 2.25rem;">No pressure, no commitment. Just a relaxed conversation about your dream pool — and an honest assessment of what's possible in your backyard.</p>
+
+            <div data-animate data-delay="0.25">
+              <a href="tel:4374212300" class="contact-info-phone" aria-label="Call 437-421-2300">437-421-2300</a>
+              <p style="font-size:0.8rem; color:var(--color-fg-muted); margin-bottom:1.5rem;">Mon–Sat, 8am–6pm EST</p>
+
+              <div class="contact-detail">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span class="contact-detail-text">420 Main Street East, Suite 708<br>Milton, ON L9T 5G3</span>
+              </div>
+
+              <div class="social-links" aria-label="Social media links">
+                <a href="https://www.instagram.com/prestigelivinginc" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram @prestigelivinginc">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.facebook.com/PrestigeOutdoorLivingMilton" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Facebook">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div data-animate data-delay="0.15">
+            <div class="glass-panel" style="padding: 2.25rem;">
+              <form id="contact-form" novalidate aria-label="Consultation request form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Full Name <span class="form-required" aria-label="required">*</span></label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Jane Smith" autocomplete="name" aria-required="true" aria-describedby="name-error">
+                    <span id="name-error" class="form-error" role="alert">Please enter your name.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" id="city" name="city" class="form-input" placeholder="Milton" autocomplete="address-level2">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Phone <span class="form-required" aria-label="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="437-000-0000" autocomplete="tel" aria-required="true" aria-describedby="phone-error">
+                    <span id="phone-error" class="form-error" role="alert">Please enter a valid phone number.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="jane@example.com" autocomplete="email" aria-describedby="email-error">
+                    <span id="email-error" class="form-error" role="alert">Please enter a valid email address.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="type-of-work" class="form-label">Type of Work <span class="form-required" aria-label="required">*</span></label>
+                  <div style="position:relative;">
+                    <select id="type-of-work" name="type_of_work" class="form-select" aria-required="true" aria-describedby="work-error">
+                      <option value="" disabled selected>Select a service…</option>
+                      <option value="fiberglass-pool">Fiberglass Pool Installation</option>
+                      <option value="pool-spa-combo">Pool &amp; Spa Combination</option>
+                      <option value="water-features">Water Features</option>
+                      <option value="led-lighting">LED Lighting System</option>
+                      <option value="landscaping">Poolside Landscaping</option>
+                      <option value="smart-tech">Smart Pool Technology</option>
+                      <option value="other">Other / Multiple Services</option>
+                    </select>
+                    <svg style="position:absolute; right:0.85rem; top:50%; transform:translateY(-50%); pointer-events:none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A9087" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                  <span id="work-error" class="form-error" role="alert">Please select a service type.</span>
+                </div>
+                <div class="form-group">
+                  <label for="additional-info" class="form-label">Additional Information</label>
+                  <textarea id="additional-info" name="additional_info" class="form-textarea" placeholder="Tell us about your backyard, timeline, or any questions you have…" aria-describedby="info-hint"></textarea>
+                  <span id="info-hint" style="font-size:0.78rem; color:var(--color-fg-muted); margin-top:0.3rem; display:block;">Optional — include pool size preference, colour ideas, or budget range.</span>
+                </div>
+                <button type="submit" class="btn-submit" id="submit-btn">
+                  <span id="submit-text">Let's Do This</span>
+                  <svg id="submit-spinner" style="display:none; animation: spin 1s linear infinite;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+                </button>
+              </form>
+              <div id="form-success" aria-live="polite" aria-atomic="true">
+                <div class="success-icon" aria-hidden="true">✓</div>
+                <h3 class="success-title">Thank You!</h3>
+                <p class="success-sub">We'll be in touch within 1 business day to schedule your free consultation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="#hero" class="nav-logo" aria-label="Prestige Outdoor Living — back to top">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true"><ellipse cx="14" cy="17" rx="11" ry="7" stroke="#B89866" stroke-width="1.5" fill="none"/><ellipse cx="14" cy="17" rx="6" ry="3.5" stroke="#B89866" stroke-width="1" fill="rgba(184,152,102,0.1)"/><path d="M8 14 Q14 8 20 14" stroke="#B89866" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="14" cy="10" r="2" fill="#B89866" opacity="0.6"/></svg>
+            Prestige Outdoor Living
+          </a>
+          <p class="footer-tagline">Transforming Milton backyards into luxury retreats — one pool at a time.</p>
+          <div class="social-links" style="margin-top:1rem;" aria-label="Social media">
+            <a href="https://www.instagram.com/prestigelivinginc" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram @prestigelivinginc">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/PrestigeOutdoorLivingMilton" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links" role="list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#why-fiberglass">About Fiberglass</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">The Process</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-heading">Contact Us</h3>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span><a href="tel:4374212300" style="color:var(--color-fg-muted); transition: color var(--transition-base);" onmouseover="this.style.color='var(--color-gold)'" onmouseout="this.style.color='var(--color-fg-muted)'">437-421-2300</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>420 Main Street East, Suite 708<br>Milton, ON L9T 5G3</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Prestige Outdoor Living. All rights reserved.</p>
+        <nav class="footer-legal-links" aria-label="Legal links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Site Map</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile CTA Bar -->
+  <div id="mobile-cta-bar" role="complementary" aria-label="Quick contact options">
+    <a href="tel:4374212300" class="mobile-call" aria-label="Call Prestige Outdoor Living at 437-421-2300">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      Call Now
+    </a>
+    <a href="#contact" class="mobile-book" aria-label="Book a consultation meeting">
+      Book Meeting
+    </a>
+  </div>
+
+  <!-- Schema.org LocalBusiness JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Prestige Outdoor Living",
+    "description": "Luxury fiberglass pool installation in Milton, Ontario. Custom pools, integrated spas, water features, LED lighting, and poolside landscaping.",
+    "telephone": "+14374212300",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "420 Main Street East, Suite 708",
+      "addressLocality": "Milton",
+      "addressRegion": "ON",
+      "postalCode": "L9T 5G3",
+      "addressCountry": "CA"
+    },
+    "url": "https://prestigeliving.ca",
+    "sameAs": [
+      "https://www.instagram.com/prestigelivinginc",
+      "https://www.facebook.com/PrestigeOutdoorLivingMilton"
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Milton",
+      "addressRegion": "ON"
+    },
+    "priceRange": "$$$",
+    "openingHours": "Mo-Sa 08:00-18:00"
+  }
+  </script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <script>
+    // ─── Spinner animation ─────────────────────────────────────────────────────
+    const spinnerStyle = document.createElement('style');
+    spinnerStyle.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
+    document.head.appendChild(spinnerStyle);
+
+    // ─── SCROLL EXPANSION HERO (no external deps — init immediately) ──────────
+    initScrollExpansionHero();
+
+    // ─── Wait for all deferred scripts ────────────────────────────────────────
+    window.addEventListener('load', initAll);
+
+    function initAll() {
+      initNav();
+      initScrollSpy();
+      initHeroAnimations();
+      initCounters();
+      initGallerySwiper();
+      initLightbox();
+      initColorSwatches();
+      initContactForm();
+      initCursorGlow();
+      initMagneticButtons();
+    }
+
+    // ─── SCROLL EXPANSION HERO LOGIC ──────────────────────────────────────────
+    // Uses CSS transform: scale() instead of width/height — zero layout reflow = 60fps smooth
+    function initScrollExpansionHero() {
+      const section = document.getElementById('scroll-expansion-hero');
+      if (!section) return;
+
+      const bg           = document.getElementById('seh-bg');
+      const mediaWrap    = document.getElementById('seh-media-wrap');
+      const mediaOverlay = document.getElementById('seh-media-overlay');
+      const word1        = document.getElementById('seh-word-1');
+      const word2        = document.getElementById('seh-word-2');
+      const hintLeft     = document.getElementById('seh-hint-left');
+      const hintRight    = document.getElementById('seh-hint-right');
+      const indicator    = document.getElementById('seh-scroll-indicator');
+
+      let targetProgress  = 0;  // driven by input events
+      let currentProgress = 0;  // lerp-smoothed value
+      let isExpanded      = false;
+      let touchStartY     = 0;
+      let rafId           = null;
+
+      // Batch all DOM writes in a single rAF — no layout reflow (transform only)
+      function applyProgress(p) {
+        // Scale from 0.22 (card) to 1.0 (fullscreen) — no width/height changes
+        const scale  = 0.22 + p * 0.78;
+        const radius = Math.max(0, 72 * (1 - p)); // large radius looks right when scaled down
+
+        mediaWrap.style.transform    = `translate(-50%, -50%) scale(${scale})`;
+        mediaWrap.style.borderRadius = radius + 'px';
+
+        bg.style.opacity             = Math.max(0, 1 - p * 2.8);   // gone by ~36% scroll
+        mediaOverlay.style.opacity   = Math.max(0, 0.42 - p * 0.42);
+
+        const tx         = p * 148;
+        const titleAlpha = Math.max(0, 1 - p * 2.2);
+
+        word1.style.transform     = `translateX(-${tx}vw)`;
+        word2.style.transform     = `translateX(${tx}vw)`;
+        word1.style.opacity       = titleAlpha;
+        word2.style.opacity       = titleAlpha;
+
+        hintLeft.style.transform  = `translateX(-${tx}vw)`;
+        hintRight.style.transform = `translateX(${tx}vw)`;
+        hintLeft.style.opacity    = titleAlpha;
+        hintRight.style.opacity   = titleAlpha;
+
+        if (indicator) indicator.style.opacity = Math.max(0, 1 - p * 4);
+      }
+
+      // Lerp loop — runs only while there is a delta to close
+      function tick() {
+        currentProgress += (targetProgress - currentProgress) * 0.1;
+        applyProgress(currentProgress);
+
+        if (Math.abs(targetProgress - currentProgress) > 0.0005) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          currentProgress = targetProgress;
+          applyProgress(currentProgress);
+          rafId = null;
+          if (currentProgress >= 1) unlock();
+        }
+      }
+
+      function scheduleUpdate() {
+        if (!rafId) rafId = requestAnimationFrame(tick);
+      }
+
+      applyProgress(0);
+
+      function unlock() {
+        isExpanded = true;
+        window.removeEventListener('wheel',      handleWheel,      { passive: false });
+        window.removeEventListener('touchstart', handleTouchStart, { passive: false });
+        window.removeEventListener('touchmove',  handleTouchMove,  { passive: false });
+        window.removeEventListener('touchend',   handleTouchEnd);
+        window.removeEventListener('scroll',     handleScroll);
+      }
+
+      function handleWheel(e) {
+        if (isExpanded) return;
+        e.preventDefault();
+        targetProgress = Math.min(Math.max(targetProgress + e.deltaY * 0.001, 0), 1);
+        scheduleUpdate();
+      }
+
+      function handleTouchStart(e) {
+        touchStartY = e.touches[0].clientY;
+      }
+
+      function handleTouchMove(e) {
+        if (isExpanded || !touchStartY) return;
+        e.preventDefault();
+        const deltaY = touchStartY - e.touches[0].clientY;
+        const factor = deltaY < 0 ? 0.007 : 0.005;
+        targetProgress = Math.min(Math.max(targetProgress + deltaY * factor, 0), 1);
+        scheduleUpdate();
+        touchStartY = e.touches[0].clientY;
+      }
+
+      function handleTouchEnd() { touchStartY = 0; }
+
+      function handleScroll() {
+        if (!isExpanded) window.scrollTo(0, 0);
+      }
+
+      window.addEventListener('wheel',      handleWheel,      { passive: false });
+      window.addEventListener('touchstart', handleTouchStart, { passive: false });
+      window.addEventListener('touchmove',  handleTouchMove,  { passive: false });
+      window.addEventListener('touchend',   handleTouchEnd);
+      window.addEventListener('scroll',     handleScroll,     { passive: true });
+    }
+
+    // ─── NAVIGATION ────────────────────────────────────────────────────────────
+    function initNav() {
+      const navbar = document.getElementById('navbar');
+      const hamburger = document.getElementById('hamburger-btn');
+      const drawer = document.getElementById('nav-drawer');
+      const drawerLinks = drawer.querySelectorAll('a');
+
+      // Scroll glass effect
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 80);
+      }, { passive: true });
+
+      // Hamburger toggle
+      function toggleDrawer(open) {
+        document.body.classList.toggle('nav-open', open);
+        hamburger.setAttribute('aria-expanded', open);
+        if (open) {
+          drawerLinks[0].focus();
+          document.addEventListener('keydown', escClose);
+        } else {
+          document.removeEventListener('keydown', escClose);
+          hamburger.focus();
+        }
+      }
+
+      function escClose(e) {
+        if (e.key === 'Escape') toggleDrawer(false);
+      }
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = document.body.classList.contains('nav-open');
+        toggleDrawer(!isOpen);
+      });
+
+      // Close drawer on link click
+      drawerLinks.forEach(link => {
+        link.addEventListener('click', () => toggleDrawer(false));
+      });
+
+      // Focus trap inside drawer
+      drawer.addEventListener('keydown', (e) => {
+        if (!document.body.classList.contains('nav-open')) return;
+        const focusable = Array.from(drawerLinks);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.key === 'Tab') {
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault(); last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault(); first.focus();
+          }
+        }
+      });
+    }
+
+    // ─── HERO ANIMATIONS (GSAP) ────────────────────────────────────────────────
+    function initHeroAnimations() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced || typeof gsap === 'undefined') {
+        // Instantly show hero elements
+        document.querySelectorAll('.hero-overline, .hero-headline, .hero-sub, .hero-ctas, .hero-trust').forEach(el => {
+          el.style.opacity = '1';
+        });
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero entrance timeline — fires when hero scrolls into view (SEH sits above it)
+      gsap.timeline({
+        scrollTrigger: { trigger: '#hero', start: 'top 80%', once: true }
+      })
+        .to('.hero-overline', { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' })
+        .to('.hero-headline', { y: 0, opacity: 1, duration: 0.85, ease: 'power3.out' }, '-=0.3')
+        .to('.hero-sub',      { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' }, '-=0.45')
+        .to('.hero-ctas',     { y: 0, opacity: 1, duration: 0.5,  ease: 'power2.out' }, '-=0.35')
+        .to('.hero-trust',    { opacity: 1, duration: 0.5, ease: 'power1.out' }, '-=0.2');
+
+      // Hero parallax
+      gsap.to('#hero-bg', {
+        yPercent: 20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+
+      // Scroll-triggered reveals
+      initScrollAnimations();
+    }
+
+    // ─── SCROLL ANIMATIONS ──────────────────────────────────────────────────────
+    function initScrollAnimations() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced || typeof gsap === 'undefined') {
+        document.querySelectorAll('[data-animate]').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      document.querySelectorAll('[data-animate]').forEach(el => {
+        const delay = parseFloat(el.dataset.delay || 0);
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none none'
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          delay: delay,
+          ease: 'power2.out'
+        });
+      });
+    }
+
+    // ─── GALLERY SWIPER ────────────────────────────────────────────────────────
+    function initGallerySwiper() {
+      if (typeof Swiper === 'undefined') return;
+      new Swiper('.gallery-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        loop: true,
+        grabCursor: true,
+        autoplay: { delay: 5500, disableOnInteraction: false, pauseOnMouseEnter: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        breakpoints: {
+          640: { slidesPerView: 1.4, spaceBetween: 20 },
+          768: { slidesPerView: 1.7, spaceBetween: 24 },
+          1024: { slidesPerView: 2.3, spaceBetween: 28 },
+          1280: { slidesPerView: 2.7, spaceBetween: 32 }
+        },
+        a11y: {
+          prevSlideMessage: 'Previous pool photo',
+          nextSlideMessage: 'Next pool photo'
+        }
+      });
+    }
+
+    // ─── COLOR SWATCHES ────────────────────────────────────────────────────────
+    function initColorSwatches() {
+      const swatches = document.querySelectorAll('.swatch-item');
+      swatches.forEach(swatch => {
+        function select() {
+          swatches.forEach(s => s.classList.remove('selected'));
+          swatch.classList.add('selected');
+        }
+        swatch.addEventListener('click', select);
+        swatch.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); }
+        });
+      });
+    }
+
+    // ─── CONTACT FORM ──────────────────────────────────────────────────────────
+    function initContactForm() {
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitText = document.getElementById('submit-text');
+      const submitSpinner = document.getElementById('submit-spinner');
+      const successEl = document.getElementById('form-success');
+
+      if (!form) return;
+
+      function validateField(group, input, check, errorId) {
+        const errorEl = document.getElementById(errorId);
+        if (!check(input.value.trim())) {
+          group.classList.add('has-error');
+          if (errorEl) errorEl.style.display = 'block';
+          return false;
+        } else {
+          group.classList.remove('has-error');
+          if (errorEl) errorEl.style.display = 'none';
+          return true;
+        }
+      }
+
+      // Blur validation
+      const nameInput = document.getElementById('name');
+      const phoneInput = document.getElementById('phone');
+      const emailInput = document.getElementById('email');
+      const workSelect = document.getElementById('type-of-work');
+
+      nameInput.addEventListener('blur', () => {
+        validateField(nameInput.closest('.form-group'), nameInput, v => v.length >= 2, 'name-error');
+      });
+      phoneInput.addEventListener('blur', () => {
+        validateField(phoneInput.closest('.form-group'), phoneInput, v => /^[\d\s\(\)\-\+]{7,20}$/.test(v), 'phone-error');
+      });
+      emailInput.addEventListener('blur', () => {
+        if (emailInput.value.trim()) {
+          validateField(emailInput.closest('.form-group'), emailInput, v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), 'email-error');
+        }
+      });
+      workSelect.addEventListener('blur', () => {
+        validateField(workSelect.closest('.form-group'), workSelect, v => v !== '', 'work-error');
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const validName = validateField(nameInput.closest('.form-group'), nameInput, v => v.length >= 2, 'name-error');
+        const validPhone = validateField(phoneInput.closest('.form-group'), phoneInput, v => /^[\d\s\(\)\-\+]{7,20}$/.test(v), 'phone-error');
+        const validWork = validateField(workSelect.closest('.form-group'), workSelect, v => v !== '', 'work-error');
+        let validEmail = true;
+        if (emailInput.value.trim()) {
+          validEmail = validateField(emailInput.closest('.form-group'), emailInput, v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), 'email-error');
+        }
+
+        if (!validName || !validPhone || !validWork || !validEmail) {
+          const firstError = form.querySelector('.has-error input, .has-error select');
+          if (firstError) firstError.focus();
+          return;
+        }
+
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+        submitText.textContent = 'Sending…';
+        submitSpinner.style.display = 'inline';
+
+        // Simulate form submission (replace with actual endpoint)
+        await new Promise(resolve => setTimeout(resolve, 1500));
+
+        // Show success
+        form.style.display = 'none';
+        successEl.classList.add('visible');
+        successEl.focus();
+      });
+    }
+
+    // ─── COUNTER ANIMATIONS ─────────────────────────────────────────────────────
+    function initCounters() {
+      const els = document.querySelectorAll('[data-count]');
+      if (!els.length) return;
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          runCounter(entry.target);
+        });
+      }, { threshold: 0.6 });
+
+      els.forEach(el => observer.observe(el));
+
+      function runCounter(el) {
+        const target   = parseInt(el.dataset.count, 10);
+        const suffix   = el.dataset.suffix || '';
+        const duration = 1600;
+        const start    = performance.now();
+
+        function frame(now) {
+          const t = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3); // cubic ease-out
+          el.textContent = Math.round(eased * target) + suffix;
+          if (t < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }
+    }
+
+    // ─── CURSOR GLOW ────────────────────────────────────────────────────────────
+    function initCursorGlow() {
+      if (window.matchMedia('(pointer: coarse)').matches) return;
+
+      const glow = document.createElement('div');
+      glow.id = 'cursor-glow';
+      document.body.appendChild(glow);
+
+      let cx = -400, cy = -400, tx = -400, ty = -400;
+      let rafRunning = false;
+
+      document.addEventListener('mousemove', e => {
+        tx = e.clientX; ty = e.clientY;
+        if (!rafRunning) { rafRunning = true; requestAnimationFrame(moveCursor); }
+      });
+
+      function moveCursor() {
+        cx += (tx - cx) * 0.07;
+        cy += (ty - cy) * 0.07;
+        glow.style.transform = `translate(${cx - 160}px, ${cy - 160}px)`;
+        if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
+          requestAnimationFrame(moveCursor);
+        } else {
+          rafRunning = false;
+        }
+      }
+
+      document.querySelectorAll('.btn-primary, .btn-ghost, .nav-cta-phone, .mobile-call, .mobile-book').forEach(el => {
+        el.addEventListener('mouseenter', () => glow.classList.add('on-cta'));
+        el.addEventListener('mouseleave', () => glow.classList.remove('on-cta'));
+      });
+    }
+
+    // ─── MAGNETIC BUTTONS ───────────────────────────────────────────────────────
+    function initMagneticButtons() {
+      if (window.matchMedia('(pointer: coarse)').matches) return;
+
+      document.querySelectorAll('.btn-primary').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect();
+          const x = (e.clientX - r.left - r.width  / 2) * 0.28;
+          const y = (e.clientY - r.top  - r.height / 2) * 0.35;
+          btn.style.transform = `translate(${x}px, ${y}px) translateY(-2px) scale(1.02)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+        });
+      });
+    }
+
+    // ─── GALLERY LIGHTBOX ───────────────────────────────────────────────────────
+    function initLightbox() {
+      const lb = document.createElement('div');
+      lb.id = 'lightbox';
+      lb.innerHTML = `
+        <div id="lb-overlay"></div>
+        <div id="lb-content">
+          <button id="lb-close" aria-label="Close lightbox">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <img id="lb-img" src="" alt="">
+          <p id="lb-caption"></p>
+        </div>`;
+      document.body.appendChild(lb);
+
+      function open(src, alt, caption) {
+        document.getElementById('lb-img').src    = src.replace('w=800', 'w=1600');
+        document.getElementById('lb-img').alt    = alt;
+        document.getElementById('lb-caption').textContent = caption;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('lb-close').focus();
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.gallery-slide').forEach(slide => {
+        const img     = slide.querySelector('img');
+        const caption = slide.querySelector('.gallery-caption');
+        if (!img) return;
+        img.addEventListener('click', () => open(img.src, img.alt, caption?.textContent || ''));
+      });
+
+      document.getElementById('lb-close').addEventListener('click', close);
+      document.getElementById('lb-overlay').addEventListener('click', close);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+    }
+
+    // ─── SCROLL SPY ─────────────────────────────────────────────────────────────
+    function initScrollSpy() {
+      const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+      if (!navLinks.length) return;
+
+      const sectionIds = Array.from(navLinks).map(a => a.getAttribute('href').slice(1));
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.id;
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        });
+      }, { threshold: 0.35, rootMargin: '-60px 0px -40% 0px' });
+
+      sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>
